@@ -17,7 +17,14 @@ public class PersonDirectory {
     public PersonDirectory() {
         this.persons = new ArrayList<Person>();
     }
-
+    
+    public Person addPersons(){
+        Person person = new Person();
+        persons.add(person);
+        
+        return person;
+    }
+    
     public ArrayList<Person> getPersons() {
         return persons;
     }

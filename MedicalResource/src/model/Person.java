@@ -13,11 +13,38 @@ public class Person {
     private String ssn;
     private String firstName;
     private String lastName;
+    private String userName;
+    private String password;
     private int age;
     private String phoneNumber;
     private House house;
     private Boolean isPatient;
     private Boolean isDoctor;
+    private String roleType;
+
+    public String getRoleType() {
+        return roleType;
+    }
+
+    public void setRoleType(String roleType) {
+        this.roleType = roleType;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Boolean getIsDoctor() {
         return isDoctor;

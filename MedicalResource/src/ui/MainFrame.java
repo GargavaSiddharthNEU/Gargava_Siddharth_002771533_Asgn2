@@ -4,17 +4,24 @@
  */
 package ui;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import model.Person;
+import model.PersonDirectory;
+
 /**
  *
  * @author siddh
  */
 public class MainFrame extends javax.swing.JFrame {
-
+    private PersonDirectory personDirectory;
+    private Person person;
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        personDirectory = new PersonDirectory();
     }
 
     /**
@@ -28,26 +35,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         SplitPane = new javax.swing.JSplitPane();
         controlPanel = new javax.swing.JPanel();
-        btnPatient = new javax.swing.JButton();
-        btnHospitalAdmin = new javax.swing.JButton();
-        btnCommunityAdmin = new javax.swing.JButton();
-        btnSystemAdmin = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnPatient.setText("PATIENT");
-        btnPatient.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.setText("REG");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatientActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
 
-        btnHospitalAdmin.setText("HOSPITAL");
-
-        btnCommunityAdmin.setText("COMMUNITY");
-
-        btnSystemAdmin.setText("SYSTEM");
+        btnLogin.setText("LOGIN");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
@@ -55,24 +61,18 @@ public class MainFrame extends javax.swing.JFrame {
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPatient)
-                    .addComponent(btnSystemAdmin)
-                    .addComponent(btnHospitalAdmin))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(btnCommunityAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRegister)
+                    .addComponent(btnLogin))
+                .addGap(0, 29, Short.MAX_VALUE))
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addGap(145, 145, 145)
-                .addComponent(btnPatient)
-                .addGap(18, 18, 18)
-                .addComponent(btnHospitalAdmin)
-                .addGap(18, 18, 18)
-                .addComponent(btnCommunityAdmin)
-                .addGap(18, 18, 18)
-                .addComponent(btnSystemAdmin)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addComponent(btnRegister)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLogin)
+                .addContainerGap(324, Short.MAX_VALUE))
         );
 
         SplitPane.setLeftComponent(controlPanel);
@@ -81,7 +81,7 @@ public class MainFrame extends javax.swing.JFrame {
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 658, Short.MAX_VALUE)
+            .addGap(0, 657, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +94,7 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
+            .addComponent(SplitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,9 +104,15 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPatientActionPerformed
+        Register registerPanel = new Register(personDirectory);
+        SplitPane.setRightComponent(registerPanel);
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,10 +151,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane SplitPane;
-    private javax.swing.JButton btnCommunityAdmin;
-    private javax.swing.JButton btnHospitalAdmin;
-    private javax.swing.JButton btnPatient;
-    private javax.swing.JButton btnSystemAdmin;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
