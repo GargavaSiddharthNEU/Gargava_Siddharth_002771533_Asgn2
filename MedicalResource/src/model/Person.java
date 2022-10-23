@@ -9,17 +9,17 @@ package model;
  * @author siddh
  */
 public class Person {
-    private String id;
+//    private String id;
     private String ssn;
     private String firstName;
     private String lastName;
     private String userName;
     private String password;
     private int age;
-    private String phoneNumber;
+    private Long phoneNumber;
     private House house;
-    private Boolean isPatient;
-    private Boolean isDoctor;
+//    private Boolean isPatient;
+//    private Boolean isDoctor;
     private String roleType;
 
     public String getRoleType() {
@@ -46,21 +46,21 @@ public class Person {
         this.password = password;
     }
 
-    public Boolean getIsDoctor() {
-        return isDoctor;
-    }
-
-    public void setIsDoctor(Boolean isDoctor) {
-        this.isDoctor = isDoctor;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public Boolean getIsDoctor() {
+//        return isDoctor;
+//    }
+//
+//    public void setIsDoctor(Boolean isDoctor) {
+//        this.isDoctor = isDoctor;
+//    }
+//
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public String getSsn() {
         return ssn;
@@ -94,14 +94,15 @@ public class Person {
         this.age = age;
     }
 
-    public String getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
+    
+    
     public House getHouse() {
         return house;
     }
@@ -109,12 +110,12 @@ public class Person {
     public void setHouse(House house) {
         this.house = house;
     }
-
-    public Boolean getIsPatient() {
-        return isPatient;
-    }
-
-    public void setIsPatient(Boolean isPatient) {
-        this.isPatient = isPatient;
-    }
+//
+//    public Boolean getIsPatient() {
+//        return isPatient;
+//    }
+//
+//    public void setIsPatient(Boolean isPatient) {
+//        this.isPatient = isPatient;
+//    }
 }

@@ -14,6 +14,7 @@ public class House {
     private String street;
     private String city;
     private String country;
+    private String community;
 
     public String getId() {
         return id;
@@ -54,4 +55,14 @@ public class House {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+    
+    
 }
