@@ -4,17 +4,24 @@
  */
 package ui;
 
+import java.util.ArrayList;
+import model.Person;
+import model.PersonDirectory;
+
 /**
  *
  * @author siddh
  */
 public class LoginPanel extends javax.swing.JPanel {
-
+    private PersonDirectory personDirectory;
+    
     /**
      * Creates new form LoginPanel
      */
-    public LoginPanel() {
+    public LoginPanel(PersonDirectory personDirectory) {
         initComponents();
+        this.personDirectory = personDirectory;
+        
     }
 
     /**
@@ -26,19 +33,81 @@ public class LoginPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnLoginUser = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtEUserName = new javax.swing.JTextField();
+        txtEPassword = new javax.swing.JTextField();
+
+        btnLoginUser.setText("LOGIN USER");
+        btnLoginUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginUserActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Username");
+
+        jLabel2.setText("Password");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(74, 74, 74)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtEPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(txtEUserName)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(btnLoginUser)))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtEUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtEPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(108, 108, 108)
+                .addComponent(btnLoginUser)
+                .addContainerGap(144, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUserActionPerformed
+        // TODO add your handling code here:
+        String userName = txtEUserName.getText();
+        String password = txtEPassword.getText();
+        ArrayList<Person> list = personDirectory.getPersons();
+        for(Person temp: list){
+            if(userName.equalsIgnoreCase(temp.getUserName()) && password.equalsIgnoreCase(temp.getPassword())){
+                if(temp.getRoleType().equalsIgnoreCase("Patient")){
+                    PatientJFrame patient = new PatientJFrame();
+                    patient.setVisible(true);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnLoginUserActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLoginUser;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField txtEPassword;
+    private javax.swing.JTextField txtEUserName;
     // End of variables declaration//GEN-END:variables
 }
