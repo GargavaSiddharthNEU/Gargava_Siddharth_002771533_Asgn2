@@ -9,8 +9,7 @@ package model;
  * @author siddh
  */
 public class Person {
-//    private String id;
-    private String ssn;
+    private String personId;
     private String firstName;
     private String lastName;
     private String userName;
@@ -62,12 +61,12 @@ public class Person {
 //        this.id = id;
 //    }
 
-    public String getSsn() {
-        return ssn;
+    public String getPersonId() {
+        return personId;
     }
 
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    public void setPersonId(String personId) {
+        this.personId = personId;
     }
 
     public String getFirstName() {

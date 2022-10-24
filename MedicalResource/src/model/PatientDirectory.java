@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author siddh
  */
 public class PatientDirectory {
-     private ArrayList<Patient> patients;
+    private ArrayList<Patient> patients;
     private Long updatedDateTime;
 
     public PatientDirectory() {
