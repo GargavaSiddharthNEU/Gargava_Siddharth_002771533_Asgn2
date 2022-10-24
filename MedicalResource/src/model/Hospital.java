@@ -11,7 +11,7 @@ package model;
 public class Hospital {
     private String HospitalID;
     private String HospitalName;
-    private String Community;
+    //private String Community;
     private DoctorDirectory doctorDirectory;
     private String hospitalAddress;
     
@@ -35,13 +35,13 @@ public class Hospital {
         this.HospitalName = HospitalName;
     }
 
-    public String getCommunity() {
-        return Community;
-    }
-
-    public void setCommunity(String Community) {
-        this.Community = Community;
-    }
+//    public String getCommunity() {
+//        return Community;
+//    }
+//
+//    public void setCommunity(String Community) {
+//        this.Community = Community;
+//    }
 
     public DoctorDirectory getDoctorDirectory() {
         return doctorDirectory;

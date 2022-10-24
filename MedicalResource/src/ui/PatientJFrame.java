@@ -4,6 +4,11 @@
  */
 package ui;
 
+import java.util.ArrayList;
+import model.Community;
+import model.CommunityDirectory;
+import model.Hospital;
+import model.HospitalDirectory;
 import model.Person;
 
 /**
@@ -11,10 +16,12 @@ import model.Person;
  * @author siddh
  */
 public class PatientJFrame extends javax.swing.JFrame {
-
     /**
      * Creates new form PatientJFrame
      */
+    
+     CommunityDirectory communityList;
+    
     public PatientJFrame() {
         initComponents();
     }
@@ -27,6 +34,22 @@ public class PatientJFrame extends javax.swing.JFrame {
         
         String community = temp.getHouse().getCommunity();
         lblCommunity.setText(community);
+        fillCMBHospital(temp);
+    }
+    
+    public void fillCMBHospital(Person temp){
+        String community = temp.getHouse().getCommunity();
+        ArrayList<Community> list = communityList.getCommunities();
+        for(Community com: list) {
+            if(com.getName().equals(community)) {
+               HospitalDirectory hd = com.getHospitalDirectory();
+               
+               ArrayList<Hospital> hospitals = hd.getHospitals();
+               for(Hospital hospital : hospitals){
+                   cmbChooseHospital.addItem(hospital.getHospitalName());
+               }
+            }
+        }
     }
     
 
@@ -44,6 +67,8 @@ public class PatientJFrame extends javax.swing.JFrame {
         lblDFLName = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblCommunity = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cmbChooseHospital = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +77,8 @@ public class PatientJFrame extends javax.swing.JFrame {
         jLabel2.setText("Welcome");
 
         jLabel3.setText("Your community is : ");
+
+        jLabel4.setText("Choose Hospital in the Community :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,9 +95,15 @@ public class PatientJFrame extends javax.swing.JFrame {
                         .addComponent(lblDFLName, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -86,7 +119,11 @@ public class PatientJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(461, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
 
         pack();
@@ -128,9 +165,11 @@ public class PatientJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmbChooseHospital;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblDFLName;
     // End of variables declaration//GEN-END:variables
