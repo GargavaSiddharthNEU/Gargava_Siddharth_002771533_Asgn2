@@ -16,7 +16,7 @@ import model.PersonDirectory;
  */
 public class MainFrame extends javax.swing.JFrame {
     private static PersonDirectory personDirectory;
-    private static Person person;
+    private Person person;
     private static PatientDirectory patientDirectory;
     //private SysAdminJFrame sysadminJFrame;
     /**
