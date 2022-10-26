@@ -6,6 +6,7 @@ package ui;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import model.PatientDirectory;
 import model.Person;
 import model.PersonDirectory;
 
@@ -14,16 +15,20 @@ import model.PersonDirectory;
  * @author siddh
  */
 public class MainFrame extends javax.swing.JFrame {
-    private PersonDirectory personDirectory;
-    private Person person;
+    private static PersonDirectory personDirectory;
+    private static Person person;
+    private static PatientDirectory patientDirectory;
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
         personDirectory = new PersonDirectory();
-        
-        
+        patientDirectory = new PatientDirectory();   
+    }
+    
+    public static void persistPatientData(PatientDirectory patientDirectory) {
+        patientDirectory = patientDirectory;
     }
 
     /**
@@ -114,7 +119,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        LoginPanel loginPanel = new LoginPanel(personDirectory);
+        LoginPanel loginPanel = new LoginPanel(personDirectory, patientDirectory);
         SplitPane.setRightComponent(loginPanel);
     }//GEN-LAST:event_btnLoginActionPerformed
 

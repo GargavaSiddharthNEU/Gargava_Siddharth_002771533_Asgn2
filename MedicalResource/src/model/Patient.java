@@ -9,20 +9,21 @@ package model;
  * @author siddh
  */
 public class Patient {
-    private String patientName;
+    private String name;
     private EncounterHistory encounterHistory;
     
     public Patient() {
         this.encounterHistory = new EncounterHistory();
     }
 
-    public String getPatientName() {
-        return patientName;
+    public String getName() {
+        return name;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public void setName(String name) {
+        this.name = name;
     }
+    
     
     public EncounterHistory getEncounterHistory() {
         return encounterHistory;
@@ -30,5 +31,10 @@ public class Patient {
 
     public void setEncounterHistory(EncounterHistory encounterHistory) {
         this.encounterHistory = encounterHistory;
+    }
+    
+    @Override
+    public String toString() {
+        return name;
     }
 }

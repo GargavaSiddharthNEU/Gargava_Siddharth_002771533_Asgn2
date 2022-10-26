@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import model.CommunityDirectory;
 import model.DoctorDirectory;
 import model.HospitalDirectory;
+import model.PatientDirectory;
 import model.Person;
 import model.PersonDirectory;
 
@@ -20,14 +21,15 @@ public class LoginPanel extends javax.swing.JPanel {
     private CommunityDirectory communityDirectory;
     private DoctorDirectory doctorDirectory;
     private HospitalDirectory hospitalDirectory;
+    private PatientDirectory patientDirectory;
     
     /**
      * Creates new form LoginPanel
      */
-    public LoginPanel(PersonDirectory personDirectory) {
+    public LoginPanel(PersonDirectory personDirectory, PatientDirectory patientDirectory) {
         initComponents();
         this.personDirectory = personDirectory;
-        
+        this.patientDirectory = patientDirectory;
     }
 
     /**
@@ -103,6 +105,9 @@ public class LoginPanel extends javax.swing.JPanel {
                 if(temp.getRoleType().equalsIgnoreCase("Patient")){
                     PatientJFrame patientFrame = new PatientJFrame(temp);
                     patientFrame.setVisible(true);
+                }else if (temp.getRoleType().equalsIgnoreCase("Doctor")) {
+                    DoctorJFrame doctor = new DoctorJFrame(temp, patientDirectory);
+                    doctor.setVisible(true);
                 }
             }
         }

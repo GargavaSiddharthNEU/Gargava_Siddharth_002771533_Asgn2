@@ -9,18 +9,19 @@ package model;
  * @author siddh
  */
 public class Encounter {
-    private String id;
+    private Integer encounterId;
     private Long date;
     private String description;
     private VitalSigns vitalSigns;
 
-    public String getId() {
-        return id;
+    public Integer getEncounterId() {
+        return encounterId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setEncounterId(Integer encounterId) {
+        this.encounterId = encounterId;
     }
+    
 
     public Long getDate() {
         return date;

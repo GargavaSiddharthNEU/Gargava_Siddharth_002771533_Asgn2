@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import model.Community;
@@ -157,15 +159,52 @@ public class PatientJFrame extends javax.swing.JFrame {
         String community = temp.getHouse().getCommunity();
         lblCommunity.setText(community);
         fillCMBHospital(temp);
+        onChangeComboBox();
         
         
     }
     
-//     public PatientJFrame(DoctorDirectory doctorDirectory) {
-//        initComponents();
-//        this.doctorDirectory = doctorDirectory;
-//        populateTable();
-//    }
+    public void onChangeComboBox() {
+        cmbChooseHospital.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Hospital tableHospital = new Hospital();
+                DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
+
+                model.setRowCount(0);
+
+//        String n = (String)cmbChooseHospital.getSelectedItem();
+//        Community hospitalcheck = communityDirectory.getCommunities();
+//       ArrayList<Hospital> hospitals = communityDirectory.getCommunities().
+                String community = person.getHouse().getCommunity();
+                ArrayList<Community> list = communityDirectory.getCommunities();
+                for (Community com : list) {
+                    if (com.getName().equals(community)) {
+                        HospitalDirectory hd = com.getHospitalDirectory();
+
+                        ArrayList<Hospital> hospitals = hd.getHospitals();
+                        for (Hospital hospital : hospitals) {
+                            String n = (String) cmbChooseHospital.getSelectedItem();
+                            if (n.equals(hospital.getHospitalName())) {
+                                tableHospital = hospital;
+                                DoctorDirectory tabDoc = tableHospital.getDoctorDirectory();
+                                for (Doctor doctor : tabDoc.getDoctors()) {
+                                    Object[] row = new Object[4];
+
+                                    row[0] = doctor.getDoctorID();
+                                    row[1] = doctor.getDoctorFName();
+                                    row[2] = doctor.getDoctorLName();
+                                    row[3] = doctor.getYearsofExp();
+
+                                    model.addRow(row);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+    
     
     public void fillCMBHospital(Person temp){
         String community = temp.getHouse().getCommunity();
@@ -201,7 +240,6 @@ public class PatientJFrame extends javax.swing.JFrame {
         cmbChooseHospital = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDoctor = new javax.swing.JTable();
-        btnPopTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -233,13 +271,6 @@ public class PatientJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblDoctor);
 
-        btnPopTable.setText("Populate Table");
-        btnPopTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPopTableActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -263,8 +294,7 @@ public class PatientJFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnPopTable)))
+                                .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -287,55 +317,13 @@ public class PatientJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnPopTable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPopTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPopTableActionPerformed
-        // TODO add your handling code here:
-        Hospital tableHospital = new Hospital();
-        DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
-        
-        model.setRowCount(0);
-        
-//        String n = (String)cmbChooseHospital.getSelectedItem();
-       
-//        Community hospitalcheck = communityDirectory.getCommunities();
-//       ArrayList<Hospital> hospitals = communityDirectory.getCommunities().
-       
-         String community = person.getHouse().getCommunity();
-        ArrayList<Community> list = communityDirectory.getCommunities();
-        for(Community com: list) {
-            if(com.getName().equals(community)) {
-               HospitalDirectory hd = com.getHospitalDirectory();
-               
-               ArrayList<Hospital> hospitals = hd.getHospitals();
-               for(Hospital hospital : hospitals){
-                   String n = (String)cmbChooseHospital.getSelectedItem();
-                   if (n.equals(hospital.getHospitalName())) {
-                tableHospital = hospital;
-                DoctorDirectory tabDoc = tableHospital.getDoctorDirectory();
-                for (Doctor doctor : tabDoc.getDoctors()) {
-                    Object[] row = new Object[4];
-
-                    row[0] = doctor.getDoctorID();
-                    row[1] = doctor.getDoctorFName();
-                    row[2] = doctor.getDoctorLName();
-                    row[3] = doctor.getYearsofExp();
-
-                    model.addRow(row);
-                }
-            }
-               }
-            }
-        }
-    }//GEN-LAST:event_btnPopTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,7 +361,6 @@ public class PatientJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPopTable;
     private javax.swing.JComboBox<String> cmbChooseHospital;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

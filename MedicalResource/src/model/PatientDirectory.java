@@ -12,10 +12,9 @@ import java.util.ArrayList;
  */
 public class PatientDirectory {
     private ArrayList<Patient> patients;
-    private Long updatedDateTime;
-
+   
     public PatientDirectory() {
-        this.patients = new ArrayList<Patient>();
+        this.patients = new ArrayList<>();
     }
 
     public ArrayList<Patient> getPatients() {
@@ -25,12 +24,23 @@ public class PatientDirectory {
     public void setPatients(ArrayList<Patient> patients) {
         this.patients = patients;
     }
-
-    public Long getUpdatedDateTime() {
-        return updatedDateTime;
+    
+    public void addPatients(Patient patient) {
+        this.patients.add(patient);
     }
 
-    public void setUpdatedDateTime(Long updatedDateTime) {
-        this.updatedDateTime = updatedDateTime;
+    public void deletePatientEncounter(Patient patientObj, int encounterIndex) {
+        int index = 0;
+        for (Patient pa : this.patients) {
+            if (pa.getName().equals(patientObj.getName())) {
+                pa.getEncounterHistory().getEncounters().remove(encounterIndex);
+                break;
+            }
+            index++;
+        }
+    }
+
+    public void updatePatients(Patient patient, int index) {
+        this.patients.set(index, patient);
     }
 }

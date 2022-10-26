@@ -11,19 +11,11 @@ import java.util.ArrayList;
  * @author siddh
  */
 public class EncounterHistory {
-    private Patient patient;
+    
     private ArrayList<Encounter> encounters;
     
     public EncounterHistory() {
-        this.encounters = new ArrayList<Encounter>();
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+        this.encounters = new ArrayList<>();
     }
 
     public ArrayList<Encounter> getEncounters() {
@@ -32,5 +24,13 @@ public class EncounterHistory {
 
     public void setEncounters(ArrayList<Encounter> encounters) {
         this.encounters = encounters;
+    }
+    
+    public void addEncounters(Encounter enc) {
+        this.encounters.add(enc);
+    }
+
+    public void updateEncounters(Encounter enc, int index) {
+        this.encounters.set(index, enc);
     }
 }
