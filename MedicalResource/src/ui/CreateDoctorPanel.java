@@ -40,7 +40,8 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         this.patient = patient;
         setCreateDoctorPanel(selectedRowIndex);
     }
-     
+    
+     //VIEW BUTTON
     private void setCreateDoctorPanel(int selectedRowIndex) {
 
         int index = 0;
@@ -59,6 +60,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         }
     }
     
+    //SETTING DATA FROM CREATE BUTTON INTO ENCOUNTER and ABOVE CLASSES
     private void setEncounterData() {
         int encounterId = Integer.parseInt(txtEncounterId.getText());
         String patientName = txtPatientName.getText();
@@ -80,14 +82,17 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         vs.setHeartRate(heartRate);
         vs.setTemperature(temperature);
         vs.setWeight(weight);
-
+        
+        //WORK OF PROCEED
         enc.setVitalSigns(vs);
 
         boolean proceed = true;
 
+        //INSERTING FOR THAT PATIENT ALREADY THERE
         for (Patient pa : patientDirectory.getPatients()) {
             int index = 0;
             if (pa.getName().equals(patientName)) {
+                //what's this
                 pa.getEncounterHistory().addEncounters(enc);
                 patientDirectory.updatePatients(pa, index);
                 proceed = false;
@@ -95,7 +100,8 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             }
             index++;
         }
-
+        
+        //IF ADDING FOR NEW PATIENT
         if (proceed) {
             patient.setName(patientName);
 
@@ -108,7 +114,8 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             patientDirectory.addPatients(patient);
         }
     }
-    
+    //UPDATE ENCOUNTER
+    //WHY RETURNING BOOLEAN
      private boolean updateEncounterData() {
         int encounterId = Integer.parseInt(txtEncounterId.getText());
         String patientName = txtPatientName.getText();

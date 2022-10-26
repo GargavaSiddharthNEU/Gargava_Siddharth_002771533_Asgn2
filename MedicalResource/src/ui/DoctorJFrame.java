@@ -28,6 +28,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         initComponents();
         this.person = person;
         this.patientDirectory = patientDirectory;
+        //ASK about this
         doctorSplitPane1 = doctorSplitPane;
 
         CreateDoctorPanel createDoctorPanel = new CreateDoctorPanel(person, patientDirectory);
@@ -42,12 +43,14 @@ public class DoctorJFrame extends javax.swing.JFrame {
         doctorSplitPane1.setRightComponent(new ViewDoctorPanel(person, patientDirectory));
         MainFrame.persistPatientData(patientDirectory);
     }
-
+    
+    //ASK
     public static void refreshCreateDoctorPanel(Person person, PatientDirectory patientDirectory) {
         doctorSplitPane1.setLeftComponent(new CreateDoctorPanel(person, patientDirectory));
         MainFrame.persistPatientData(patientDirectory);
     }
-
+    
+    //USe for this
     public static void setCreateDoctorPanel(Person person, PatientDirectory patientDirectory, Patient patient, int selectedRowIndex) {
         doctorSplitPane1.setLeftComponent(new CreateDoctorPanel(person, patientDirectory, patient, selectedRowIndex));
     }
@@ -64,7 +67,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         doctorSplitPane = new javax.swing.JSplitPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(400, 800));
 
         doctorSplitPane.setPreferredSize(new java.awt.Dimension(800, 800));
 
@@ -117,6 +119,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         });
     }
     
+    //ASK
 private static javax.swing.JSplitPane doctorSplitPane1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane doctorSplitPane;
