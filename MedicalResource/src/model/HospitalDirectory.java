@@ -13,10 +13,17 @@ import java.util.ArrayList;
 public class HospitalDirectory {
     private ArrayList<Hospital> hospitals;
     
+    
     public HospitalDirectory() {
         this.hospitals = new ArrayList<Hospital>();
     }
 
+     public void addHospital(Hospital newHospital){
+        
+        hospitals.add(newHospital);
+        
+    }
+    
     public ArrayList<Hospital> getHospitals() {
         return hospitals;
     }

@@ -15,7 +15,13 @@ public class CommunityDirectory {
     private ArrayList<Community> communities;
 
     public CommunityDirectory() {
-        this.communities = new ArrayList<>();
+        this.communities = new ArrayList<Community>();
+    }
+    
+    public void addCommunity(Community community){
+        
+        communities.add(community);
+       
     }
     
     public ArrayList<Community> getCommunities() {

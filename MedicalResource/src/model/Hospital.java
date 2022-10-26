@@ -14,11 +14,20 @@ public class Hospital {
     //private String Community;
     private DoctorDirectory doctorDirectory;
     private String hospitalAddress;
+
+    public Hospital(String HospitalID, String HospitalName, DoctorDirectory doctorDirectory, String hospitalAddress) {
+        this.HospitalID = HospitalID;
+        this.HospitalName = HospitalName;
+        this.doctorDirectory = doctorDirectory;
+        this.hospitalAddress = hospitalAddress;
+    }
+    
     
     public Hospital() {
         this.doctorDirectory = new DoctorDirectory();
     }
-
+    
+    
     public String getHospitalID() {
         return HospitalID;
     }

@@ -16,6 +16,18 @@ public class Doctor {
     private String hospitalID;
     private String hospitalName;
 
+    public Doctor() {
+    }
+
+    public Doctor(String doctorID, String doctorFName, String doctorLName, int yearsofExp, String hospitalID, String hospitalName) {
+        this.doctorID = doctorID;
+        this.doctorFName = doctorFName;
+        this.doctorLName = doctorLName;
+        this.yearsofExp = yearsofExp;
+        this.hospitalID = hospitalID;
+        this.hospitalName = hospitalName;
+    }
+    
     public String getDoctorID() {
         return doctorID;
     }
@@ -64,4 +76,8 @@ public class Doctor {
         this.hospitalName = hospitalName;
     }
     
+//    @Override
+//    public String toString(){
+//        return DoctorID;
+//    }
 }

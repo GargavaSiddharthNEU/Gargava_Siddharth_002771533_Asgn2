@@ -5,6 +5,9 @@
 package ui;
 
 import java.util.ArrayList;
+import model.CommunityDirectory;
+import model.DoctorDirectory;
+import model.HospitalDirectory;
 import model.Person;
 import model.PersonDirectory;
 
@@ -14,6 +17,9 @@ import model.PersonDirectory;
  */
 public class LoginPanel extends javax.swing.JPanel {
     private PersonDirectory personDirectory;
+    private CommunityDirectory communityDirectory;
+    private DoctorDirectory doctorDirectory;
+    private HospitalDirectory hospitalDirectory;
     
     /**
      * Creates new form LoginPanel

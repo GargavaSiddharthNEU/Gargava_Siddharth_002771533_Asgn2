@@ -17,7 +17,14 @@ public class DoctorDirectory {
     public DoctorDirectory() {
         this.doctors = new ArrayList<Doctor>();
     }
-
+    
+    public void addDoctor(Doctor newDoctor){
+        
+        doctors.add(newDoctor);
+        
+        
+    }
+    
     public ArrayList<Doctor> getDoctors() {
         return doctors;
     }

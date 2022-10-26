@@ -16,6 +16,21 @@ public class House {
     private String country;
     private String community;
 
+    public House() {
+        
+    }
+    
+    
+    
+    public House(String id, String houseNumber, String street, String city, String country, String community){
+        this.id = id;
+        this.houseNumber = houseNumber;
+        this.street = street;
+        this.city = city;
+        this.country = country;
+        this.community = community;
+    }
+    
     public String getId() {
         return id;
     }

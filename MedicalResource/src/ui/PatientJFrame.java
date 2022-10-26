@@ -5,10 +5,14 @@
 package ui;
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import model.Community;
 import model.CommunityDirectory;
+import model.Doctor;
+import model.DoctorDirectory;
 import model.Hospital;
 import model.HospitalDirectory;
+import model.House;
 import model.Person;
 
 /**
@@ -20,14 +24,132 @@ public class PatientJFrame extends javax.swing.JFrame {
      * Creates new form PatientJFrame
      */
     
-     CommunityDirectory communityList;
+     CommunityDirectory communityDirectory;
+     DoctorDirectory doctorDirectory;
+     HospitalDirectory hospitalDirectory;
+     Person person;
     
     public PatientJFrame() {
         initComponents();
+        
     }
     
     public PatientJFrame(Person temp) {
         initComponents();
+        
+        this.communityDirectory = new CommunityDirectory();
+        this.doctorDirectory = new DoctorDirectory();
+        this.hospitalDirectory = new HospitalDirectory();
+        this.person = temp;
+        
+        //Example1
+        Community ncom1 = new Community();
+        ncom1.setId("C1");
+        ncom1.setName("Park Drive");
+        
+        communityDirectory.addCommunity(ncom1);
+        
+        House house1 =new House("H1","Apt9","143","Boston","USA","Park Drive");
+        ArrayList<House> houses = new ArrayList<>();
+        houses.add(house1);
+        
+        ncom1.setHouses(houses);
+        
+        Doctor doc1 = new Doctor();
+        doc1.setDoctorID("D1");
+        doc1.setDoctorFName("Vivek");
+        doc1.setDoctorLName("Bagga");
+        doc1.setYearsofExp(35);
+        doc1.setHospitalID("Hos1");
+        
+        doctorDirectory.addDoctor(doc1);
+        //Hospital hosp1 = new Hospital("Hos1","Fortis",doctorDirectory,"235 Park Drive");
+        
+        Hospital hosp1 = new Hospital();
+        hosp1.setHospitalName("Fortis");
+        hosp1.setHospitalID("Hos1");
+        hosp1.setHospitalAddress("235 Park Drive");
+        
+        hospitalDirectory.addHospital(hosp1);
+        
+        hosp1.setDoctorDirectory(doctorDirectory);
+        
+        ncom1.setHospitalDirectory(hospitalDirectory);
+        ncom1.setHouses(houses);
+        
+        //Example 2
+        
+        Community ncom2 = new Community();
+        ncom2.setId("C2");
+        ncom2.setName("Washington");
+        
+        communityDirectory.addCommunity(ncom2);
+        
+        House house2 =new House("H2","Apt9","143","Boston","USA","Washington");
+        ArrayList<House> houses2 = new ArrayList<>();
+        houses2.add(house1);
+        
+        ncom2.setHouses(houses);
+        
+        Doctor doc2 = new Doctor();
+        doc2.setDoctorID("D2");
+        doc2.setDoctorFName("Mani");
+        doc2.setDoctorLName("Reddy");
+        doc2.setYearsofExp(25);
+        doc2.setHospitalID("Hos2");
+        
+        DoctorDirectory dd2 = new DoctorDirectory();
+        dd2.addDoctor(doc2);
+        //Hospital hosp1 = new Hospital("Hos1","Fortis",doctorDirectory,"235 Park Drive");
+        
+        Hospital hosp2 = new Hospital();
+        hosp2.setHospitalName("Medanta");
+        hosp2.setHospitalID("Hos2");
+        hosp2.setHospitalAddress("400 Washington");
+        
+        HospitalDirectory hd2 = new HospitalDirectory();
+        hd2.addHospital(hosp2);
+        
+        hosp2.setDoctorDirectory(dd2);
+        
+        ncom2.setHospitalDirectory(hd2);
+        ncom2.setHouses(houses2);
+        
+        
+        //Example3
+       
+        
+        House house3 =new House("H3","Apt45","143","Boston","USA","Park Drive");
+        ArrayList<House> houses3 = new ArrayList<>();
+        houses3.add(house3);
+        
+        ncom1.setHouses(houses3);
+        
+        Doctor doc3 = new Doctor();
+        doc3.setDoctorID("D3");
+        doc3.setDoctorFName("Matt");
+        doc3.setDoctorLName("Riley");
+        doc3.setYearsofExp(40);
+        doc3.setHospitalID("Hos3");
+        
+        DoctorDirectory dd3 = new DoctorDirectory();
+        dd3.addDoctor(doc3);
+        //Hospital hosp1 = new Hospital("Hos1","Fortis",doctorDirectory,"235 Park Drive");
+        
+        Hospital hosp3 = new Hospital();
+        hosp3.setHospitalName("AIIMS");
+        hosp3.setHospitalID("Hos3");
+        hosp3.setHospitalAddress("AIIMS Park Drive");
+        
+        
+        hospitalDirectory.addHospital(hosp3);
+        
+        hosp3.setDoctorDirectory(dd3);
+        
+        ncom1.setHospitalDirectory(hospitalDirectory);
+        ncom1.setHouses(houses3);
+        
+        //END
         String firstName = temp.getFirstName();
         String lastName = temp.getLastName();
         lblDFLName.setText(firstName + " " + lastName);
@@ -35,11 +157,19 @@ public class PatientJFrame extends javax.swing.JFrame {
         String community = temp.getHouse().getCommunity();
         lblCommunity.setText(community);
         fillCMBHospital(temp);
+        
+        
     }
+    
+//     public PatientJFrame(DoctorDirectory doctorDirectory) {
+//        initComponents();
+//        this.doctorDirectory = doctorDirectory;
+//        populateTable();
+//    }
     
     public void fillCMBHospital(Person temp){
         String community = temp.getHouse().getCommunity();
-        ArrayList<Community> list = communityList.getCommunities();
+        ArrayList<Community> list = communityDirectory.getCommunities();
         for(Community com: list) {
             if(com.getName().equals(community)) {
                HospitalDirectory hd = com.getHospitalDirectory();
@@ -69,6 +199,9 @@ public class PatientJFrame extends javax.swing.JFrame {
         lblCommunity = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cmbChooseHospital = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDoctor = new javax.swing.JTable();
+        btnPopTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +212,33 @@ public class PatientJFrame extends javax.swing.JFrame {
         jLabel3.setText("Your community is : ");
 
         jLabel4.setText("Choose Hospital in the Community :");
+
+        tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "DoctorID", "Doctor FName", "Doctor LName", "Year of Exp"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblDoctor);
+
+        btnPopTable.setText("Populate Table");
+        btnPopTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPopTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,7 +263,11 @@ public class PatientJFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnPopTable)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -123,11 +287,55 @@ public class PatientJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(385, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnPopTable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPopTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPopTableActionPerformed
+        // TODO add your handling code here:
+        Hospital tableHospital = new Hospital();
+        DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
+        
+        model.setRowCount(0);
+        
+//        String n = (String)cmbChooseHospital.getSelectedItem();
+       
+//        Community hospitalcheck = communityDirectory.getCommunities();
+//       ArrayList<Hospital> hospitals = communityDirectory.getCommunities().
+       
+         String community = person.getHouse().getCommunity();
+        ArrayList<Community> list = communityDirectory.getCommunities();
+        for(Community com: list) {
+            if(com.getName().equals(community)) {
+               HospitalDirectory hd = com.getHospitalDirectory();
+               
+               ArrayList<Hospital> hospitals = hd.getHospitals();
+               for(Hospital hospital : hospitals){
+                   String n = (String)cmbChooseHospital.getSelectedItem();
+                   if (n.equals(hospital.getHospitalName())) {
+                tableHospital = hospital;
+                DoctorDirectory tabDoc = tableHospital.getDoctorDirectory();
+                for (Doctor doctor : tabDoc.getDoctors()) {
+                    Object[] row = new Object[4];
+
+                    row[0] = doctor.getDoctorID();
+                    row[1] = doctor.getDoctorFName();
+                    row[2] = doctor.getDoctorLName();
+                    row[3] = doctor.getYearsofExp();
+
+                    model.addRow(row);
+                }
+            }
+               }
+            }
+        }
+    }//GEN-LAST:event_btnPopTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,12 +373,46 @@ public class PatientJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPopTable;
     private javax.swing.JComboBox<String> cmbChooseHospital;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblDFLName;
+    private javax.swing.JTable tblDoctor;
     // End of variables declaration//GEN-END:variables
+
+//    private void populateTable() {
+//        
+//        Hospital tableHospital = new Hospital();
+//        DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
+//        
+//        model.setRowCount(0);
+//        
+//        String n = (String)cmbChooseHospital.getSelectedItem();
+//        
+//       ArrayList<Hospital> hospitals = hospitalDirectory.getHospitals();
+//       
+//        for (Hospital searchHospital : hospitals) {
+//            if (n.equals(searchHospital.getHospitalName())) {
+//                tableHospital = searchHospital;
+//                DoctorDirectory tabDoc = tableHospital.getDoctorDirectory();
+//                for (Doctor doctor : tabDoc.getDoctors()) {
+//                    Object[] row = new Object[4];
+//
+//                    row[0] = doctor.getDoctorID();
+//                    row[1] = doctor.getDoctorFName();
+//                    row[2] = doctor.getDoctorLName();
+//                    row[3] = doctor.getYearsofExp();
+//
+//                    model.addRow(row);
+//                }
+//            }
+//        }
+//
+//    }
+
 }
