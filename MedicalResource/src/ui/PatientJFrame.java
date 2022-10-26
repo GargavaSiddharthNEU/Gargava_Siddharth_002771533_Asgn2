@@ -44,7 +44,7 @@ public class PatientJFrame extends javax.swing.JFrame {
         this.hospitalDirectory = new HospitalDirectory();
         this.person = temp;
         
-        //Example1
+        //---------------------Example1----------------------------
         Community ncom1 = new Community();
         ncom1.setId("C1");
         ncom1.setName("Park Drive");
@@ -79,7 +79,7 @@ public class PatientJFrame extends javax.swing.JFrame {
         ncom1.setHospitalDirectory(hospitalDirectory);
         ncom1.setHouses(houses);
         
-        //Example 2
+        //-------------------Example 2--------------------------------------------
         
         Community ncom2 = new Community();
         ncom2.setId("C2");
@@ -102,7 +102,6 @@ public class PatientJFrame extends javax.swing.JFrame {
         
         DoctorDirectory dd2 = new DoctorDirectory();
         dd2.addDoctor(doc2);
-        //Hospital hosp1 = new Hospital("Hos1","Fortis",doctorDirectory,"235 Park Drive");
         
         Hospital hosp2 = new Hospital();
         hosp2.setHospitalName("Medanta");
@@ -118,7 +117,7 @@ public class PatientJFrame extends javax.swing.JFrame {
         ncom2.setHouses(houses2);
         
         
-        //Example3
+        //-----------------------Example3-------------------------------------
        
         
         House house3 =new House("H3","Apt45","143","Boston","USA","Park Drive");
@@ -151,7 +150,7 @@ public class PatientJFrame extends javax.swing.JFrame {
         ncom1.setHospitalDirectory(hospitalDirectory);
         ncom1.setHouses(houses3);
         
-        //END
+        //-------------- Example END---------------------------------------
         String firstName = temp.getFirstName();
         String lastName = temp.getLastName();
         lblDFLName.setText(firstName + " " + lastName);
@@ -167,7 +166,7 @@ public class PatientJFrame extends javax.swing.JFrame {
     public void onChangeComboBox() {
         cmbChooseHospital.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Hospital tableHospital = new Hospital();
+                //Hospital tableHospital = new Hospital();
                 DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
 
                 model.setRowCount(0);
@@ -183,10 +182,10 @@ public class PatientJFrame extends javax.swing.JFrame {
 
                         ArrayList<Hospital> hospitals = hd.getHospitals();
                         for (Hospital hospital : hospitals) {
-                            String n = (String) cmbChooseHospital.getSelectedItem();
-                            if (n.equals(hospital.getHospitalName())) {
-                                tableHospital = hospital;
-                                DoctorDirectory tabDoc = tableHospital.getDoctorDirectory();
+                            String selectedHospital = (String) cmbChooseHospital.getSelectedItem();
+                            if (selectedHospital.equals(hospital.getHospitalName())) {
+                               // tableHospital = hospital;
+                                DoctorDirectory tabDoc = hospital.getDoctorDirectory();
                                 for (Doctor doctor : tabDoc.getDoctors()) {
                                     Object[] row = new Object[4];
 
@@ -240,6 +239,7 @@ public class PatientJFrame extends javax.swing.JFrame {
         cmbChooseHospital = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDoctor = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -271,6 +271,8 @@ public class PatientJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblDoctor);
 
+        jLabel5.setText("Please find list of Doctors in your selected Hospital :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -297,7 +299,9 @@ public class PatientJFrame extends javax.swing.JFrame {
                                 .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -317,7 +321,9 @@ public class PatientJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbChooseHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -366,6 +372,7 @@ public class PatientJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblDFLName;
