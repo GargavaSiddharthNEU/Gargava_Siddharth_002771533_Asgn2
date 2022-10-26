@@ -104,7 +104,6 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         tblVital = new javax.swing.JTable();
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        btnDocBack = new javax.swing.JButton();
 
         jLabel1.setText("Doctor Name :");
 
@@ -151,13 +150,6 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDocBack.setText("BACK");
-        btnDocBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDocBackActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,9 +176,7 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
                         .addGap(249, 249, 249)
                         .addComponent(btnView)
                         .addGap(79, 79, 79)
-                        .addComponent(btnDelete)
-                        .addGap(78, 78, 78)
-                        .addComponent(btnDocBack)))
+                        .addComponent(btnDelete)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -205,8 +195,7 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
-                    .addComponent(btnDelete)
-                    .addComponent(btnDocBack))
+                    .addComponent(btnDelete))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -238,17 +227,9 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         DoctorJFrame.refreshCreateDoctorPanel(person, patientDirectory);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnDocBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocBackActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        MainFrame mframe = new MainFrame();
-        mframe.setVisible(true);
-    }//GEN-LAST:event_btnDocBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnDocBack;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

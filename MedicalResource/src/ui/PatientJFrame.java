@@ -16,6 +16,7 @@ import model.Hospital;
 import model.HospitalDirectory;
 import model.House;
 import model.Person;
+import static ui.DoctorJFrame.doctorJFrame;
 
 /**
  *
@@ -30,10 +31,15 @@ public class PatientJFrame extends javax.swing.JFrame {
      DoctorDirectory doctorDirectory;
      HospitalDirectory hospitalDirectory;
      Person person;
+     static PatientJFrame patientJFrame;
     
     public PatientJFrame() {
         initComponents();
         
+    }
+    
+    public PatientJFrame(PatientJFrame patientJFrame) {
+        this.patientJFrame = patientJFrame;
     }
     
     public PatientJFrame(Person temp) {
@@ -162,6 +168,10 @@ public class PatientJFrame extends javax.swing.JFrame {
         
         
     }
+    
+//    public static void closeFrame() {
+//        patientJFrame.dispose();
+//    }
     
     public void onChangeComboBox() {
         cmbChooseHospital.addActionListener(new ActionListener() {
@@ -346,8 +356,7 @@ public class PatientJFrame extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new MainFrame().setVisible(true);
+        patientJFrame.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**

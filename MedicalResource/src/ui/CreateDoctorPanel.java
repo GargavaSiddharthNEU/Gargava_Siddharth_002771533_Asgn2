@@ -194,6 +194,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         jLabel1.setText("Patient Name");
 
@@ -225,6 +226,13 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,11 +254,10 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                             .addComponent(txtPatientName)
                             .addComponent(txtEncounterId)
                             .addComponent(txtEncounterDate, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtHeartRate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                .addComponent(txtBloodPressure, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtWeight, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtTemperature, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(txtHeartRate, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                            .addComponent(txtBloodPressure)
+                            .addComponent(txtWeight)
+                            .addComponent(txtTemperature)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -258,7 +265,10 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                         .addGap(75, 75, 75)
                         .addComponent(btnCreate)
                         .addGap(30, 30, 30)
-                        .addComponent(btnUpdate)))
+                        .addComponent(btnUpdate))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(btnBack)))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -298,7 +308,9 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreate)
                     .addComponent(btnUpdate))
-                .addContainerGap(348, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBack)
+                .addContainerGap(307, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -321,8 +333,15 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         DoctorJFrame.refreshViewDoctorPanel(person, patientDirectory);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        //What's the DoctorJFrame
+        DoctorJFrame.closeFrame();
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;

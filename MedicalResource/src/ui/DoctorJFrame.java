@@ -19,9 +19,14 @@ public class DoctorJFrame extends javax.swing.JFrame {
      */
     Person person;
     PatientDirectory patientDirectory;
+    static DoctorJFrame doctorJFrame;
     
     public DoctorJFrame() {
         initComponents();
+    }
+    
+    public DoctorJFrame(DoctorJFrame doctorJFrame) {
+        this.doctorJFrame = doctorJFrame;
     }
     
     public DoctorJFrame(Person person, PatientDirectory patientDirectory) {
@@ -37,6 +42,10 @@ public class DoctorJFrame extends javax.swing.JFrame {
         ViewDoctorPanel viewDoctorPanel = new ViewDoctorPanel(person, patientDirectory);
         doctorSplitPane1.setRightComponent(viewDoctorPanel);
 
+    }
+    
+    public static void closeFrame() {
+        doctorJFrame.dispose();
     }
     
     public static void refreshViewDoctorPanel(Person person, PatientDirectory patientDirectory) {
@@ -74,7 +83,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(doctorSplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(doctorSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -34,12 +34,10 @@
                           <Component id="txtPatientName" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtEncounterId" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtEncounterDate" alignment="0" pref="166" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtHeartRate" alignment="0" pref="123" max="32767" attributes="0"/>
-                              <Component id="txtBloodPressure" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtWeight" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtTemperature" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="txtHeartRate" alignment="0" pref="166" max="32767" attributes="0"/>
+                          <Component id="txtBloodPressure" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtWeight" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtTemperature" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -51,6 +49,10 @@
                       <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="85" max="32767" attributes="0"/>
@@ -102,7 +104,9 @@
                   <Component id="btnCreate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="348" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="307" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -176,6 +180,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBack">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="BACK"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

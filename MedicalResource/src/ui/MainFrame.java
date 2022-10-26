@@ -18,6 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
     private static PersonDirectory personDirectory;
     private static Person person;
     private static PatientDirectory patientDirectory;
+    //private SysAdminJFrame sysadminJFrame;
     /**
      * Creates new form MainFrame
      */
@@ -145,6 +146,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         SysAdminJFrame sysAdminFrame = new SysAdminJFrame();
         sysAdminFrame.setVisible(true);
+        //what does new do?
+        new SysAdminJFrame(sysAdminFrame);
     }//GEN-LAST:event_btnSystemAdminActionPerformed
 
     /**
