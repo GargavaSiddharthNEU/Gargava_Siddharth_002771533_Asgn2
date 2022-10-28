@@ -276,17 +276,21 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
     private void btnPopulateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPopulateActionPerformed
         // TODO add your handling code here:
         String hosID = txtHospId.getText();
-        if(hosID.isEmpty()){
-             JOptionPane.showMessageDialog(this, "Please enter code");
-        } 
-        
-        ArrayList<Doctor> doctorList = new ArrayList<>();
-        for (Doctor doctor : doctorDirectory.getDoctors()) {
-            if (doctor.getHospitalID().equalsIgnoreCase(hosID)) {
-                doctorList.add(doctor);
-            }
+        if (hosID.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter code");
         }
-        filteredDoctorTable(doctorList);
+        if (this.person!=null && !(this.person.getAssHospital().equalsIgnoreCase(txtHospId.getText())) && this.person.getRoleType() == "Hospital Admin") {
+            JOptionPane.showMessageDialog(this, "Restricted Access");
+        } else {
+            ArrayList<Doctor> doctorList = new ArrayList<>();
+            for (Doctor doctor : doctorDirectory.getDoctors()) {
+                if (doctor.getHospitalID().equalsIgnoreCase(hosID)) {
+                    doctorList.add(doctor);
+                }
+            }
+            filteredDoctorTable(doctorList);
+        }
+        
         
     }//GEN-LAST:event_btnPopulateActionPerformed
 

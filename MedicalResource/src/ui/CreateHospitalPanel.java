@@ -237,12 +237,15 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        String doctorId = txtDoctorId.getText();
+        if(this.person!=null && !(this.person.getAssHospital().equalsIgnoreCase(txtHospitalId.getText())) && this.person.getRoleType().equalsIgnoreCase("Hospital Admin") ){
+            JOptionPane.showMessageDialog(this, "Restricted Access");
+        } else {
+            String doctorId = txtDoctorId.getText();
         doctorDirectory.addDoctor(setDoctorData());
         resetDoctorData();
         JOptionPane.showMessageDialog(this, "New doctor data with doctor id : " + doctorId + " created");
         HospitalJFrame.refreshViewHospitalPanel(person, doctorDirectory, personDirectory);
-       
+        }
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed

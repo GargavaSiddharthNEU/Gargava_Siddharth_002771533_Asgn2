@@ -26,11 +26,14 @@ public class LoginPanel extends javax.swing.JPanel {
     /**
      * Creates new form LoginPanel
      */
-    public LoginPanel(PersonDirectory personDirectory, PatientDirectory patientDirectory, HospitalDirectory hospitalDirectory) {
+    public LoginPanel(PersonDirectory personDirectory, PatientDirectory patientDirectory, HospitalDirectory hospitalDirectory,
+            DoctorDirectory doctorDirectory, CommunityDirectory communityDirectory) {
         initComponents();
         this.personDirectory = personDirectory;
         this.patientDirectory = patientDirectory;
         this.hospitalDirectory = hospitalDirectory;
+        this.doctorDirectory = doctorDirectory;
+        this.communityDirectory = communityDirectory;
     }
 
     /**
@@ -115,6 +118,10 @@ public class LoginPanel extends javax.swing.JPanel {
                     HospitalJFrame hospitalFrame = new HospitalJFrame(temp,doctorDirectory,personDirectory);
                     hospitalFrame.setVisible(true);
                     new HospitalJFrame(hospitalFrame);
+                }else if (temp.getRoleType().equalsIgnoreCase("Community Admin")){
+                    CommunityAdminJFrame communityadminFrame = new CommunityAdminJFrame(hospitalDirectory);
+                    communityadminFrame.setVisible(true);
+                    new CommunityAdminJFrame(communityadminFrame);
                 }
             }
         }

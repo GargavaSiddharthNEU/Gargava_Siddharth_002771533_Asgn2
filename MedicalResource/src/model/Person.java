@@ -20,6 +20,8 @@ public class Person {
 //    private Boolean isPatient;
 //    private Boolean isDoctor;
     private String roleType;
+    private String assHospital;
+    private String assCommunity;
 
     public String getRoleType() {
         return roleType;
@@ -45,21 +47,6 @@ public class Person {
         this.password = password;
     }
 
-//    public Boolean getIsDoctor() {
-//        return isDoctor;
-//    }
-//
-//    public void setIsDoctor(Boolean isDoctor) {
-//        this.isDoctor = isDoctor;
-//    }
-//
-//    public String getId() {
-//        return id;
-//    }
-//
-//    public void setId(String id) {
-//        this.id = id;
-//    }
 
     public String getPersonId() {
         return personId;
@@ -109,6 +96,8 @@ public class Person {
     public void setHouse(House house) {
         this.house = house;
     }
+    
+    
 //
 //    public Boolean getIsPatient() {
 //        return isPatient;
@@ -117,4 +106,20 @@ public class Person {
 //    public void setIsPatient(Boolean isPatient) {
 //        this.isPatient = isPatient;
 //    }
+
+    public String getAssHospital() {
+        return assHospital;
+    }
+
+    public void setAssHospital(String assHospital) {
+        this.assHospital = assHospital;
+    }
+
+    public String getAssCommunity() {
+        return assCommunity;
+    }
+
+    public void setAssCommunity(String assCommunity) {
+        this.assCommunity = assCommunity;
+    }
 }

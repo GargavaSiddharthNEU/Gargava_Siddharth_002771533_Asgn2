@@ -161,7 +161,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        LoginPanel loginPanel = new LoginPanel(personDirectory, patientDirectory, hospitalDirectory);
+        LoginPanel loginPanel = new LoginPanel(personDirectory, patientDirectory, hospitalDirectory, doctorDirectory, 
+        communityDirectory);
         SplitPane.setRightComponent(loginPanel);
     }//GEN-LAST:event_btnLoginActionPerformed
 
