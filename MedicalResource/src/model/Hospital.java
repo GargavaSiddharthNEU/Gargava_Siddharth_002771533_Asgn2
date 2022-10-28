@@ -11,17 +11,25 @@ package model;
 public class Hospital {
     private String HospitalID;
     private String HospitalName;
-    //private String Community;
     private DoctorDirectory doctorDirectory;
     private String hospitalAddress;
+    private String community;
 
-    public Hospital(String HospitalID, String HospitalName, DoctorDirectory doctorDirectory, String hospitalAddress) {
+    public Hospital(String HospitalID, String HospitalName, DoctorDirectory doctorDirectory, String hospitalAddress, String community) {
         this.HospitalID = HospitalID;
         this.HospitalName = HospitalName;
         this.doctorDirectory = doctorDirectory;
         this.hospitalAddress = hospitalAddress;
+        this.community = community;
     }
-    
+
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
     
     public Hospital() {
         this.doctorDirectory = new DoctorDirectory();
@@ -68,4 +76,8 @@ public class Hospital {
         this.hospitalAddress = hospitalAddress;
     }
     
+    @Override
+    public String toString() {
+        return community;
+    }
 }

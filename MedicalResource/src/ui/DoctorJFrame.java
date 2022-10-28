@@ -7,6 +7,7 @@ package ui;
 import model.Patient;
 import model.PatientDirectory;
 import model.Person;
+import model.PersonDirectory;
 
 /**
  *
@@ -19,6 +20,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
      */
     Person person;
     PatientDirectory patientDirectory;
+    static PersonDirectory personDirectory;
     static DoctorJFrame doctorJFrame;
     
     public DoctorJFrame() {
@@ -29,17 +31,18 @@ public class DoctorJFrame extends javax.swing.JFrame {
         this.doctorJFrame = doctorJFrame;
     }
     
-    public DoctorJFrame(Person person, PatientDirectory patientDirectory) {
+    public DoctorJFrame(Person person, PatientDirectory patientDirectory,PersonDirectory personDirectory) {
         initComponents();
         this.person = person;
         this.patientDirectory = patientDirectory;
-        //ASK about this
+        this.personDirectory = personDirectory;
+       
         doctorSplitPane1 = doctorSplitPane;
 
         CreateDoctorPanel createDoctorPanel = new CreateDoctorPanel(person, patientDirectory);
         doctorSplitPane1.setLeftComponent(createDoctorPanel);
 
-        ViewDoctorPanel viewDoctorPanel = new ViewDoctorPanel(person, patientDirectory);
+        ViewDoctorPanel viewDoctorPanel = new ViewDoctorPanel(person, patientDirectory, personDirectory);
         doctorSplitPane1.setRightComponent(viewDoctorPanel);
 
     }
@@ -49,17 +52,15 @@ public class DoctorJFrame extends javax.swing.JFrame {
     }
     
     public static void refreshViewDoctorPanel(Person person, PatientDirectory patientDirectory) {
-        doctorSplitPane1.setRightComponent(new ViewDoctorPanel(person, patientDirectory));
+        doctorSplitPane1.setRightComponent(new ViewDoctorPanel(person, patientDirectory, personDirectory));
         MainFrame.persistPatientData(patientDirectory);
     }
     
-    //ASK
     public static void refreshCreateDoctorPanel(Person person, PatientDirectory patientDirectory) {
         doctorSplitPane1.setLeftComponent(new CreateDoctorPanel(person, patientDirectory));
         MainFrame.persistPatientData(patientDirectory);
     }
     
-    //USe for this
     public static void setCreateDoctorPanel(Person person, PatientDirectory patientDirectory, Patient patient, int selectedRowIndex) {
         doctorSplitPane1.setLeftComponent(new CreateDoctorPanel(person, patientDirectory, patient, selectedRowIndex));
     }
@@ -128,7 +129,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         });
     }
     
-    //ASK
+    
 private static javax.swing.JSplitPane doctorSplitPane1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane doctorSplitPane;

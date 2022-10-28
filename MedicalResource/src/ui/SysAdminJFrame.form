@@ -63,16 +63,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="HOSPITAL ADMIN"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHosAdminActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnComAdmin">
       <Properties>
         <Property name="text" type="java.lang.String" value="COMMUNITY ADMIN"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnComAdminActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCrtCommunity">
       <Properties>
         <Property name="text" type="java.lang.String" value="CREATE COMMUNITIES"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrtCommunityActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>

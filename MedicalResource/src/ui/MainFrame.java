@@ -5,7 +5,11 @@
 package ui;
 
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import model.CommunityDirectory;
+import model.DoctorDirectory;
+import model.HospitalDirectory;
 import model.PatientDirectory;
 import model.Person;
 import model.PersonDirectory;
@@ -16,8 +20,12 @@ import model.PersonDirectory;
  */
 public class MainFrame extends javax.swing.JFrame {
     private static PersonDirectory personDirectory;
-    private Person person;
-    private static PatientDirectory patientDirectory;
+    static Person person;
+    static PatientDirectory patientDirectory;
+    static HospitalDirectory hospitalDirectory;
+    static CommunityDirectory communityDirectory;
+    static DoctorDirectory doctorDirectory;
+    
     //private SysAdminJFrame sysadminJFrame;
     /**
      * Creates new form MainFrame
@@ -25,11 +33,26 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         personDirectory = new PersonDirectory();
-        patientDirectory = new PatientDirectory();   
+        patientDirectory = new PatientDirectory();
+        hospitalDirectory = new HospitalDirectory();
+        doctorDirectory = new DoctorDirectory();
+        communityDirectory = new CommunityDirectory();
     }
     
     public static void persistPatientData(PatientDirectory patientDirectory) {
         patientDirectory = patientDirectory;
+    }
+    
+    public static void persistHospitalData(HospitalDirectory hospitalDirectory) {
+        hospitalDirectory = hospitalDirectory;
+    }
+    
+    public static void persistCommunityData(CommunityDirectory communityDirectory) {
+        communityDirectory = communityDirectory;
+    }
+    
+    public static void persistDoctorData(DoctorDirectory doctorDirectory) {
+        doctorDirectory = doctorDirectory;
     }
 
     /**
@@ -138,15 +161,16 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        LoginPanel loginPanel = new LoginPanel(personDirectory, patientDirectory);
+        LoginPanel loginPanel = new LoginPanel(personDirectory, patientDirectory, hospitalDirectory);
         SplitPane.setRightComponent(loginPanel);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        SysAdminJFrame sysAdminFrame = new SysAdminJFrame();
+        SysAdminJFrame sysAdminFrame = new SysAdminJFrame(communityDirectory, hospitalDirectory,doctorDirectory,
+     person, personDirectory);
         sysAdminFrame.setVisible(true);
-        //what does new do?
+        sysAdminFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         new SysAdminJFrame(sysAdminFrame);
     }//GEN-LAST:event_btnSystemAdminActionPerformed
 

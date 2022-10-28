@@ -33,4 +33,12 @@ public class HospitalDirectory {
     }
     
     
+    public void deleteHospital(Hospital hospitalObj) {
+       this.hospitals.remove(hospitalObj);
+    }
+
+    public void updateHospital(Hospital hospital, int index) {
+        this.hospitals.set(index, hospital);
+    }
+    
 }

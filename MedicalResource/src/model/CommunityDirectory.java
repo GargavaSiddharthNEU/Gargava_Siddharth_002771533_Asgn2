@@ -30,6 +30,14 @@ public class CommunityDirectory {
 
     public void setCommunities(ArrayList<Community> communities) {
         this.communities = communities;
-    }  
+    }
+    
+    public void deleteCommunity(Community com) {
+        this.communities.remove(com);
+    }
+
+    public void updateCommunity(Community com, int index) {
+        this.communities.set(index, com);
+    }
 
 }

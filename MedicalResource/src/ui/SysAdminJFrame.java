@@ -4,6 +4,13 @@
  */
 package ui;
 
+import javax.swing.JFrame;
+import model.CommunityDirectory;
+import model.DoctorDirectory;
+import model.HospitalDirectory;
+import model.Person;
+import model.PersonDirectory;
+
 /**
  *
  * @author siddh
@@ -15,6 +22,11 @@ public class SysAdminJFrame extends javax.swing.JFrame {
      */
     
     static SysAdminJFrame sysadminJFrame;
+    CommunityDirectory communityDirectory;
+    HospitalDirectory hospitalDirectory;
+    DoctorDirectory doctorDirectory;
+    Person person;
+    PersonDirectory personDirectory;
     
     public SysAdminJFrame() {
         initComponents();
@@ -22,6 +34,16 @@ public class SysAdminJFrame extends javax.swing.JFrame {
     
     public SysAdminJFrame(SysAdminJFrame sysadminJFrame) {
         this.sysadminJFrame = sysadminJFrame;
+    }
+    
+    public SysAdminJFrame(CommunityDirectory communityDirectory, HospitalDirectory hospitalDirectory,DoctorDirectory doctorDirectory,
+    Person person, PersonDirectory personDirectory) {
+        initComponents();
+        this.communityDirectory = communityDirectory;
+        this.hospitalDirectory = hospitalDirectory;
+        this.doctorDirectory = doctorDirectory;
+        this.person = person;
+        this.personDirectory = personDirectory;
     }
     
 //    public static void closeFrame() {
@@ -45,10 +67,25 @@ public class SysAdminJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnHosAdmin.setText("HOSPITAL ADMIN");
+        btnHosAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHosAdminActionPerformed(evt);
+            }
+        });
 
         btnComAdmin.setText("COMMUNITY ADMIN");
+        btnComAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComAdminActionPerformed(evt);
+            }
+        });
 
         btnCrtCommunity.setText("CREATE COMMUNITIES");
+        btnCrtCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrtCommunityActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +132,30 @@ public class SysAdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         sysadminJFrame.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnComAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComAdminActionPerformed
+        // TODO add your handling code here:
+        CommunityAdminJFrame communityAdminJFrame = new CommunityAdminJFrame(hospitalDirectory);
+        communityAdminJFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        communityAdminJFrame.setVisible(true);
+        new CommunityAdminJFrame(communityAdminJFrame);
+    }//GEN-LAST:event_btnComAdminActionPerformed
+
+    private void btnCrtCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtCommunityActionPerformed
+        // TODO add your handling code here:
+        SysAdminCreateCommunitiesJFrame sysAdminCreateCommunity = new SysAdminCreateCommunitiesJFrame(communityDirectory);
+        sysAdminCreateCommunity.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        sysAdminCreateCommunity.setVisible(true);
+        new SysAdminCreateCommunitiesJFrame(sysAdminCreateCommunity);
+    }//GEN-LAST:event_btnCrtCommunityActionPerformed
+
+    private void btnHosAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHosAdminActionPerformed
+        // TODO add your handling code here:
+        HospitalJFrame hospitalJFrame = new HospitalJFrame(person, doctorDirectory, personDirectory);
+        hospitalJFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        hospitalJFrame.setVisible(true);
+        new HospitalJFrame(hospitalJFrame);
+    }//GEN-LAST:event_btnHosAdminActionPerformed
 
     /**
      * @param args the command line arguments

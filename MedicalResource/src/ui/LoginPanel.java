@@ -26,10 +26,11 @@ public class LoginPanel extends javax.swing.JPanel {
     /**
      * Creates new form LoginPanel
      */
-    public LoginPanel(PersonDirectory personDirectory, PatientDirectory patientDirectory) {
+    public LoginPanel(PersonDirectory personDirectory, PatientDirectory patientDirectory, HospitalDirectory hospitalDirectory) {
         initComponents();
         this.personDirectory = personDirectory;
         this.patientDirectory = patientDirectory;
+        this.hospitalDirectory = hospitalDirectory;
     }
 
     /**
@@ -107,9 +108,13 @@ public class LoginPanel extends javax.swing.JPanel {
                     patientFrame.setVisible(true);
                     new PatientJFrame(patientFrame);
                 }else if (temp.getRoleType().equalsIgnoreCase("Doctor")) {
-                    DoctorJFrame doctor = new DoctorJFrame(temp, patientDirectory);
+                    DoctorJFrame doctor = new DoctorJFrame(temp, patientDirectory, personDirectory);
                     doctor.setVisible(true);
                     new DoctorJFrame(doctor);
+                }else if (temp.getRoleType().equalsIgnoreCase("Hospital Admin")){
+                    HospitalJFrame hospitalFrame = new HospitalJFrame(temp,doctorDirectory,personDirectory);
+                    hospitalFrame.setVisible(true);
+                    new HospitalJFrame(hospitalFrame);
                 }
             }
         }

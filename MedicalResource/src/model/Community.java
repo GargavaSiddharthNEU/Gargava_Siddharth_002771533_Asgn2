@@ -57,5 +57,9 @@ public class Community {
         this.patientDirectory = patientDirectory;
     }
     
+    @Override
+    public String toString() {
+        return id;
+    }
     
 }

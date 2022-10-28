@@ -13,6 +13,7 @@ import model.Encounter;
 import model.Patient;
 import model.PatientDirectory;
 import model.Person;
+import model.PersonDirectory;
 /**
  *
  * @author siddh
@@ -24,16 +25,32 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
      */
     Person person;
     PatientDirectory patientDirectory;
+    PersonDirectory personDirectory;
     
     
-    public ViewDoctorPanel(Person person, PatientDirectory patientDirectory) {
+    public ViewDoctorPanel(Person person, PatientDirectory patientDirectory, PersonDirectory personDirectory) {
         initComponents();
         this.person = person;
         this.patientDirectory = patientDirectory;
+        this.personDirectory = personDirectory;
         setDoctorProfileData();
-        //WHY?
-        getPatientData(jPatientChooser.getSelectedItem().toString());
-        onChangeComboBox();
+        constructDoctorPatients();
+        
+    }
+    
+    public void constructDoctorPatients() {
+        for (Person p : personDirectory.getPersons()) {
+            if ((p.getRoleType() == "Patient") && (p.getHouse().getCommunity()).equals(this.person.getHouse().getCommunity())) {
+                jPatientChooser.addItem(p.getFirstName() + " " + p.getLastName());
+            }
+        }
+        if (jPatientChooser.getSelectedItem() != null) {
+            onChangeComboBox();
+            getPatientData(jPatientChooser.getSelectedItem().toString());
+        }
+        else {
+           JOptionPane.showMessageDialog(this, "No patients available to enter their encounter details");
+        }
     }
     
      public void setDoctorProfileData() {
@@ -48,6 +65,7 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
             }
         });
     }
+    
     
     public void populateEncounterTable(Patient patient) {
         DefaultTableModel model = (DefaultTableModel) tblVital.getModel();
@@ -112,8 +130,6 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         jLabel2.setText("Community Name :");
 
         txtCommunityNameValue.setText("NA");
-
-        jPatientChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PatientA", "PatientB", "PatientC", "PatientD" }));
 
         tblVital.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,6 +226,7 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblVital.getModel();
         //QUES-WHY?
         DoctorJFrame.setCreateDoctorPanel(person, patientDirectory, (Patient) model.getValueAt(selectedRowIndex, 0), selectedRowIndex);
+        
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

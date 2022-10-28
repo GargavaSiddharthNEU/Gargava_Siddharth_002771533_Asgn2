@@ -76,8 +76,8 @@ public class Doctor {
         this.hospitalName = hospitalName;
     }
     
-//    @Override
-//    public String toString(){
-//        return DoctorID;
-//    }
+    @Override
+    public String toString(){
+        return hospitalID;
+    }
 }

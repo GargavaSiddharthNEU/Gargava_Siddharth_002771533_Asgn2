@@ -19,10 +19,7 @@ public class DoctorDirectory {
     }
     
     public void addDoctor(Doctor newDoctor){
-        
         doctors.add(newDoctor);
-        
-        
     }
     
     public ArrayList<Doctor> getDoctors() {
@@ -31,6 +28,14 @@ public class DoctorDirectory {
 
     public void setDoctors(ArrayList<Doctor> doctors) {
         this.doctors = doctors;
+    }
+    
+    public void updateDoctor(Doctor doc, int index) {
+        this.doctors.set(index, doc);
+    }
+    
+    public void deleteDoctor(Doctor doc) {
+       this.doctors.remove(doc);
     }
     
 }

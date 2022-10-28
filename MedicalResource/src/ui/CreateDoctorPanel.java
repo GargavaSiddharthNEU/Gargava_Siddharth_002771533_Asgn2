@@ -41,7 +41,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         setCreateDoctorPanel(selectedRowIndex);
     }
     
-     //VIEW BUTTON
+     //WHAT DOES THIS DO?
     private void setCreateDoctorPanel(int selectedRowIndex) {
 
         int index = 0;
