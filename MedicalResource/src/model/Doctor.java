@@ -12,18 +12,18 @@ public class Doctor {
     private String doctorID;
     private String doctorFName;
     private String doctorLName;
-    private int yearsofExp;
+    private String specialisation;
     private String hospitalID;
     private String hospitalName;
 
     public Doctor() {
     }
 
-    public Doctor(String doctorID, String doctorFName, String doctorLName, int yearsofExp, String hospitalID, String hospitalName) {
+    public Doctor(String doctorID, String doctorFName, String doctorLName, String specialisation, String hospitalID, String hospitalName) {
         this.doctorID = doctorID;
         this.doctorFName = doctorFName;
         this.doctorLName = doctorLName;
-        this.yearsofExp = yearsofExp;
+        this.specialisation = specialisation;
         this.hospitalID = hospitalID;
         this.hospitalName = hospitalName;
     }
@@ -52,13 +52,15 @@ public class Doctor {
         this.doctorLName = doctorLName;
     }
 
-    public int getYearsofExp() {
-        return yearsofExp;
+    public String getSpecialisation() {
+        return specialisation;
     }
 
-    public void setYearsofExp(int yearsofExp) {
-        this.yearsofExp = yearsofExp;
+    public void setSpecialisation(String specialisation) {
+        this.specialisation = specialisation;
     }
+
+   
 
     public String getHospitalID() {
         return hospitalID;

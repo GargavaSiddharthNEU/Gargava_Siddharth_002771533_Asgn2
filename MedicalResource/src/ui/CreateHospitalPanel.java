@@ -40,10 +40,6 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
         
     }
     
-//     public CreateHospitalPanel(DoctorDirectory doctorDirectory) {
-//        initComponents();
-//        this.doctorDirectory = doctorDirectory;
-//    }
     
     public CreateHospitalPanel(Person person, DoctorDirectory doctorDirectory, Doctor doctor) {
         initComponents();
@@ -62,6 +58,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
         txtDoctorFName.setText(doctor.getDoctorFName());
         txtDoctorLName.setText(doctor.getDoctorLName());
         txtHospitalName.setText(doctor.getHospitalName());
+        txtYOE.setText(doctor.getSpecialisation());
         txtHospitalId.setText(doctor.getHospitalID());
     }
      
@@ -69,7 +66,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
         String doctorId = txtDoctorId.getText();
         String doctorFName = txtDoctorFName.getText();
         String doctorLName = txtDoctorLName.getText();
-        int yearOfExp = Integer.parseInt(txtYOE.getText());
+        String specialisation = txtYOE.getText();
         String hospitalName = txtHospitalName.getText();
         String hospitalId = txtHospitalId.getText();
         
@@ -79,7 +76,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
         doc.setDoctorID(doctorId);
         doc.setDoctorFName(doctorFName);
         doc.setDoctorLName(doctorLName);
-        doc.setYearsofExp(yearOfExp);
+        doc.setSpecialisation(specialisation);
         doc.setHospitalID(hospitalId);
         doc.setHospitalName(hospitalName);
 
@@ -129,7 +126,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Doctor Last Name");
 
-        jLabel6.setText("Years of Experience");
+        jLabel6.setText("Specialisation");
 
         jLabel8.setText("DETAILS");
 
@@ -177,9 +174,9 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)

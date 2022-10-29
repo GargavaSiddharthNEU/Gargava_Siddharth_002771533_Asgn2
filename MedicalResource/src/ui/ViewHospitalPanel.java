@@ -36,37 +36,19 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
         this.person = person;
         this.doctorDirectory = doctorDirectory;
         this.personDirectory = personDirectory;
-        
-        
-//        //EXAMPLE-1
-//        Community ncom1 = new Community();
-//        ncom1.setId("C1");
-//        ncom1.setName("Park Drive");
-//        communityDirectory.addCommunity(ncom1);
-//        Hospital hosp1 = new Hospital();
-//        hosp1.setHospitalName("Fortis");
-//        hosp1.setHospitalID("Hos1");
-//        hosp1.setHospitalAddress("235 Park Drive");
-//        
-//        Doctor doc1 = new Doctor();
-//        doc1.setDoctorID("D1");
-//        doc1.setDoctorFName("Vivek");
-//        doc1.setDoctorLName("Bagga");
-//        doc1.setYearsofExp(35);
-//        doc1.setHospitalID("Hos1");
-//        doctorDirectory.addDoctor(doc1);
-//        hosp1.setDoctorDirectory(doctorDirectory);
-//        
-//        hospitalDirectory.addHospital(hosp1);
-//        ncom1.setHospitalDirectory(hospitalDirectory);
-        
-//        setHospitalAdminProfileData();
+        setHospitalAdminProfileData();
         
     }
     
     public void setHospitalAdminProfileData() {
-        lblHospitalAdminName.setText(this.person.getFirstName() + " " + this.person.getLastName());
-        lblCommunityNameValue.setText(this.person.getHouse().getCommunity());
+        if(person!=null){
+            lblHospitalAdminName.setText(this.person.getFirstName() + " " + this.person.getLastName());
+            lblCommunityNameValue.setText(this.person.getHouse().getCommunity());
+        } else {
+            lblHospitalAdminName.setText("NA");
+            lblCommunityNameValue.setText("NA");
+        }
+        
     }
     
     public void populateDoctorTable() {
@@ -80,7 +62,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
             row[2] = doc.getDoctorID();
             row[3] = doc.getDoctorFName();
             row[4] = doc.getDoctorLName();
-            row[5] = doc.getYearsofExp();
+            row[5] = doc.getSpecialisation();
 
             model.addRow(row);
         }
@@ -97,7 +79,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
             row[2] = doctor.getDoctorID();
             row[3] = doctor.getDoctorFName();
             row[4] = doctor.getDoctorLName();
-            row[5] = doctor.getYearsofExp();
+            row[5] = doctor.getSpecialisation();
 
             model.addRow(row);
         }
@@ -145,7 +127,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Hospital Name", "Hospital ID", "Doctor ID", "Doctor FName", "Doctor LName", "Years of Exp"
+                "Hospital ID", "Hospital Name", "Doctor ID", "Doctor FName", "Doctor LName", "Specialisation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -215,7 +197,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblCommunityNameValue, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
