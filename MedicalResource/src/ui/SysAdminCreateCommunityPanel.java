@@ -67,6 +67,7 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         btnCreate.setText("CREATE");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +94,9 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Community Name");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setText("DETAILS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,16 +119,19 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
                         .addGap(59, 59, 59)
                         .addComponent(btnUpdate))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
                         .addComponent(btnBack)))
                 .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack)
-                .addGap(52, 52, 52)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel3)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCommunityId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -136,7 +143,9 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreate)
                     .addComponent(btnUpdate))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBack)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,6 +187,7 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtCommunityId;
     private javax.swing.JTextField txtCommunityName;
     // End of variables declaration//GEN-END:variables

@@ -92,6 +92,7 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setText("Community Name");
 
@@ -122,15 +123,17 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setText("DETAILS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -149,15 +152,19 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
                             .addComponent(txtHospitalAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
-                                .addComponent(btnUpdate)))))
+                                .addComponent(btnUpdate))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(btnBack)))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(btnBack)
-                .addGap(45, 45, 45)
+                .addGap(46, 46, 46)
+                .addComponent(jLabel5)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -177,7 +184,9 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreate)
                     .addComponent(btnUpdate))
-                .addContainerGap(495, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBack)
+                .addContainerGap(447, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -227,6 +236,7 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtCommunityName;
     private javax.swing.JTextField txtHospitalAddress;
     private javax.swing.JTextField txtHospitalId;

@@ -128,6 +128,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
 
         jLabel6.setText("Specialisation");
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("DETAILS");
 
         btnCreate.setText("CREATE");

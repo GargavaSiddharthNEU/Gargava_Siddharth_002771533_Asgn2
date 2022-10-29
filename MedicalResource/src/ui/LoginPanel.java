@@ -53,6 +53,8 @@ public class LoginPanel extends javax.swing.JPanel {
         txtEPassword = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         btnLoginUser.setText("LOGIN USER");
         btnLoginUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +66,8 @@ public class LoginPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Password");
 
+        jLabel3.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("LOGIN PAGE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -73,9 +77,6 @@ public class LoginPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(btnLoginUser))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -83,19 +84,20 @@ public class LoginPanel extends javax.swing.JPanel {
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtEPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(txtEUserName))))
+                            .addComponent(txtEUserName)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLoginUser))))
                 .addContainerGap(174, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(226, 226, 226))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel3)
-                .addGap(44, 44, 44)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtEUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -105,7 +107,7 @@ public class LoginPanel extends javax.swing.JPanel {
                     .addComponent(txtEPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(108, 108, 108)
                 .addComponent(btnLoginUser)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

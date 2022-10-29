@@ -75,6 +75,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        controlPanel.setBackground(new java.awt.Color(255, 204, 204));
+
         btnRegister.setText("REGISTER");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +124,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         SplitPane.setLeftComponent(controlPanel);
 
+        workArea.setBackground(new java.awt.Color(204, 255, 255));
         workArea.setPreferredSize(new java.awt.Dimension(800, 800));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\siddh\\OneDrive\\Desktop\\AED2 Images\\Healthcare_AED2.jpg")); // NOI18N

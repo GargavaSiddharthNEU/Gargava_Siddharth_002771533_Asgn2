@@ -148,6 +148,7 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
 
         lblCommunityNameValue.setText("NA");
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("COMMUNITY ADMIN DETAILS :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -184,8 +185,8 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
                                 .addGap(298, 298, 298))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -210,7 +211,7 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
                     .addComponent(btnDelete))
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

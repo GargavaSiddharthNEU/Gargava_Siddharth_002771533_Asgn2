@@ -63,6 +63,7 @@ public class SysAdminJFrame extends javax.swing.JFrame {
         btnComAdmin = new javax.swing.JButton();
         btnCrtCommunity = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,35 +95,37 @@ public class SysAdminJFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("SYSTEM ADMINISTRATOR PAGE :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(105, 105, 105)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnHosAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnComAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCrtCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(274, 274, 274)
-                        .addComponent(btnBack)))
-                .addContainerGap(242, Short.MAX_VALUE))
+                    .addComponent(btnBack)
+                    .addComponent(btnHosAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCrtCommunity))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addGap(36, 36, 36)
                 .addComponent(btnHosAdmin)
-                .addGap(45, 45, 45)
+                .addGap(36, 36, 36)
                 .addComponent(btnComAdmin)
                 .addGap(38, 38, 38)
                 .addComponent(btnCrtCommunity)
-                .addGap(35, 35, 35)
+                .addGap(43, 43, 43)
                 .addComponent(btnBack)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,5 +200,6 @@ public class SysAdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnComAdmin;
     private javax.swing.JButton btnCrtCommunity;
     private javax.swing.JButton btnHosAdmin;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -210,6 +210,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Weight");
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("DETAILS");
 
         btnCreate.setText("CREATE");
@@ -240,6 +241,14 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(btnCreate)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnUpdate))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(btnBack))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,26 +266,16 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                             .addComponent(txtHeartRate, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                             .addComponent(txtBloodPressure)
                             .addComponent(txtWeight)
-                            .addComponent(txtTemperature)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(btnCreate)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnUpdate))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(btnBack)))
+                            .addComponent(txtTemperature)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

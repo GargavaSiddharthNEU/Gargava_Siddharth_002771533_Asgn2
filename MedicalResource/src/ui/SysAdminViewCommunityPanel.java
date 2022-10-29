@@ -52,6 +52,7 @@ public class SysAdminViewCommunityPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,6 +89,9 @@ public class SysAdminViewCommunityPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("BUILD COMMUNITY PAGE :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,19 +105,24 @@ public class SysAdminViewCommunityPanel extends javax.swing.JPanel {
                         .addGap(62, 62, 62)
                         .addComponent(btnView)
                         .addGap(91, 91, 91)
-                        .addComponent(btnDelete)))
+                        .addComponent(btnDelete))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
                     .addComponent(btnDelete))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -149,6 +158,7 @@ public class SysAdminViewCommunityPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnView;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

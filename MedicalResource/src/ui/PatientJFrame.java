@@ -254,7 +254,8 @@ public class PatientJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("PATIENT PAGE");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("PATIENT PAGE :");
 
         jLabel2.setText("Welcome");
 
@@ -298,9 +299,9 @@ public class PatientJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(268, 268, 268)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
+                        .addGap(199, 199, 199)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblDFLName, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))

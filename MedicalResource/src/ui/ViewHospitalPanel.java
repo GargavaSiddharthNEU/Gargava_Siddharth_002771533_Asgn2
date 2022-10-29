@@ -161,6 +161,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("HOSPITAL ADMIN DETAILS:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -178,9 +179,6 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
                         .addGap(134, 134, 134)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -190,10 +188,15 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
                                 .addGap(121, 121, 121)
                                 .addComponent(btnPopulate))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblHospitalAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(76, 76, 76)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblHospitalAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(77, 77, 77)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(20, 20, 20)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblCommunityNameValue, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -202,9 +205,9 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel4)
-                .addGap(44, 44, 44)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lblHospitalAdminName)
@@ -221,7 +224,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
                     .addComponent(btnDelete))
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
