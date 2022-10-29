@@ -7,6 +7,8 @@ package ui;
 import javax.swing.JOptionPane;
 import model.Hospital;
 import model.HospitalDirectory;
+import model.Person;
+import model.PersonDirectory;
 
 /**
  *
@@ -19,14 +21,19 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
      */
     HospitalDirectory hospitalDirectory;
     Hospital hospital;
+    Person person;
+    PersonDirectory personDirectory;
     
-    public CreateCommunityAdminPanel(HospitalDirectory hospitalDirectory) {
+    public CreateCommunityAdminPanel(Person person, HospitalDirectory hospitalDirectory,PersonDirectory personDirectory) {
         initComponents();
         this.hospitalDirectory = hospitalDirectory;
+        this.person = person;
+        this.personDirectory = personDirectory;
     }
     
-    public CreateCommunityAdminPanel(HospitalDirectory hospitalDirectory, Hospital hospital) {
+    public CreateCommunityAdminPanel(Person person, HospitalDirectory hospitalDirectory, Hospital hospital) {
         initComponents();
+        this.person = person;
         this.hospitalDirectory = hospitalDirectory;
         this.hospital = hospital;
         setSysAdminCreateCommunityPanel();
@@ -176,11 +183,17 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        String hospitalId = txtHospitalId.getText();
-        hospitalDirectory.addHospital(setHospitalData());
-        JOptionPane.showMessageDialog(this, "New hospital data with hospital id : " + hospitalId + " created");
-        resetHospitalData();
-        CommunityAdminJFrame.refreshCommunityAdminViewCommunityPanel(hospitalDirectory);
+        if (this.person != null && !(this.person.getAssCommunity().equalsIgnoreCase(txtCommunityName.getText())) && this.person.getRoleType().equalsIgnoreCase("Community Admin")) {
+            JOptionPane.showMessageDialog(this, "Restricted Access");
+        } else {
+            String hospitalId = txtHospitalId.getText();
+            hospitalDirectory.addHospital(setHospitalData());
+            JOptionPane.showMessageDialog(this, "New hospital data with hospital id : " + hospitalId + " created");
+            resetHospitalData();
+            CommunityAdminJFrame.refreshCommunityAdminViewCommunityPanel(person, hospitalDirectory, personDirectory);
+        }
+
+
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -197,7 +210,7 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
         }
         JOptionPane.showMessageDialog(this, "Existing hospital with hospital id : " + hospitalId + " updated");
         resetHospitalData();
-        CommunityAdminJFrame.refreshCommunityAdminViewCommunityPanel(hospitalDirectory);
+        CommunityAdminJFrame.refreshCommunityAdminViewCommunityPanel(person,hospitalDirectory,personDirectory);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

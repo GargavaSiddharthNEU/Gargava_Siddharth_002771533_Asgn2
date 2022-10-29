@@ -252,6 +252,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Doctor deleted"); 
         populateDoctorTable();
         HospitalJFrame.refreshCreateHospitalPanel(person, doctorDirectory, personDirectory);
+        txtHospId.setText("");
         
     }//GEN-LAST:event_btnDeleteActionPerformed
 

@@ -323,13 +323,13 @@ public class Register extends javax.swing.JPanel {
         
         String roleType = (String)cmbRole.getSelectedItem();
         
-         if(txtAssHospital.getText().isEmpty() && roleType == "Hospital Admin"){
+         if(txtAssHospital.getText().isEmpty() && roleType.equalsIgnoreCase("Hospital Admin")){
             flag = false;
         } else { 
             assHospital = txtAssHospital.getText();
         }
          
-          if(txtAssHospital.getText().isEmpty() && roleType == "Community Admin"){
+          if(txtAssCommunity.getText().isEmpty() && roleType.equalsIgnoreCase("Community Admin")){
             flag = false;
         } else { 
             assCommunity = txtAssCommunity.getText();
@@ -337,7 +337,7 @@ public class Register extends javax.swing.JPanel {
         
         if(flag == false){
             JOptionPane.showMessageDialog(this, "Please enter all details !");
-            clearAllFields();
+            //clearAllFields();
             return;
         }
         
@@ -408,12 +408,7 @@ public class Register extends javax.swing.JPanel {
          private Long validatePhoneNumber(String phoneNumber)
     {
         try{
-            if(phoneNumber.length() == 10)
                 return Long.parseLong(phoneNumber);
-            else{
-                JOptionPane.showMessageDialog(this, "Invalid Phone Number!");
-                return null;
-            }
         }
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Invalid Phone Number!");

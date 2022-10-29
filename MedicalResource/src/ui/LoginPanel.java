@@ -119,7 +119,7 @@ public class LoginPanel extends javax.swing.JPanel {
                     hospitalFrame.setVisible(true);
                     new HospitalJFrame(hospitalFrame);
                 }else if (temp.getRoleType().equalsIgnoreCase("Community Admin")){
-                    CommunityAdminJFrame communityadminFrame = new CommunityAdminJFrame(hospitalDirectory);
+                    CommunityAdminJFrame communityadminFrame = new CommunityAdminJFrame(temp, hospitalDirectory,personDirectory);
                     communityadminFrame.setVisible(true);
                     new CommunityAdminJFrame(communityadminFrame);
                 }
