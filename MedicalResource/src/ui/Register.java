@@ -337,7 +337,7 @@ public class Register extends javax.swing.JPanel {
         
         if(flag == false){
             JOptionPane.showMessageDialog(this, "Please enter all details !");
-            //clearAllFields();
+            clearAllFields();
             return;
         }
         
@@ -371,6 +371,7 @@ public class Register extends javax.swing.JPanel {
         personDirectory.setPersons(persons);
         
         JOptionPane.showMessageDialog(this, "Profile successfully added !");
+        clearAllFields();
         System.out.println(personDirectory.getPersons().size());
     }//GEN-LAST:event_btnRegisterActionPerformed
 
@@ -471,6 +472,7 @@ public class Register extends javax.swing.JPanel {
         txtUserName.setText("");
         txtAssCommunity.setText("");
         txtAssHospital.setText("");
+        txtpersonId.setText("");
         
     }
 

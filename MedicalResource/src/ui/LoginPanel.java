@@ -5,6 +5,7 @@
 package ui;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.CommunityDirectory;
 import model.DoctorDirectory;
 import model.HospitalDirectory;
@@ -50,6 +51,7 @@ public class LoginPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtEUserName = new javax.swing.JTextField();
         txtEPassword = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         btnLoginUser.setText("LOGIN USER");
         btnLoginUser.addActionListener(new java.awt.event.ActionListener() {
@@ -62,12 +64,17 @@ public class LoginPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Password");
 
+        jLabel3.setText("LOGIN PAGE");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(btnLoginUser))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,16 +83,19 @@ public class LoginPanel extends javax.swing.JPanel {
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtEPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(txtEUserName)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(btnLoginUser)))
+                            .addComponent(txtEUserName))))
                 .addContainerGap(174, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(226, 226, 226))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel3)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtEUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -106,7 +116,7 @@ public class LoginPanel extends javax.swing.JPanel {
         ArrayList<Person> list = personDirectory.getPersons();
         for(Person temp: list){
             if(userName.equalsIgnoreCase(temp.getUserName()) && password.equalsIgnoreCase(temp.getPassword())){
-                if(temp.getRoleType().equalsIgnoreCase("Patient")){
+               if(temp.getRoleType().equalsIgnoreCase("Patient")){
                     PatientJFrame patientFrame = new PatientJFrame(temp);
                     patientFrame.setVisible(true);
                     new PatientJFrame(patientFrame);
@@ -118,13 +128,15 @@ public class LoginPanel extends javax.swing.JPanel {
                     HospitalJFrame hospitalFrame = new HospitalJFrame(temp,doctorDirectory,personDirectory);
                     hospitalFrame.setVisible(true);
                     new HospitalJFrame(hospitalFrame);
-                }else if (temp.getRoleType().equalsIgnoreCase("Community Admin")){
-                    CommunityAdminJFrame communityadminFrame = new CommunityAdminJFrame(temp, hospitalDirectory,personDirectory);
+                } else if (temp.getRoleType().equalsIgnoreCase("Community Admin")) {
+                    CommunityAdminJFrame communityadminFrame = new CommunityAdminJFrame(temp, hospitalDirectory, personDirectory);
                     communityadminFrame.setVisible(true);
                     new CommunityAdminJFrame(communityadminFrame);
                 }
             }
         }
+                        
+//                JOptionPane.showMessageDialog(this, "Invalid User");
     }//GEN-LAST:event_btnLoginUserActionPerformed
 
 
@@ -132,6 +144,7 @@ public class LoginPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnLoginUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtEPassword;
     private javax.swing.JTextField txtEUserName;
     // End of variables declaration//GEN-END:variables

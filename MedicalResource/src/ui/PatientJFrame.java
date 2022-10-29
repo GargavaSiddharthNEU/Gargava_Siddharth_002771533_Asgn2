@@ -269,7 +269,7 @@ public class PatientJFrame extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "DoctorID", "Doctor FName", "Doctor LName", "Year of Exp"
+                "DoctorID", "Doctor FName", "Doctor LName", "Specialisation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
