@@ -4,6 +4,7 @@
  */
 package ui;
 
+import model.CommunityDirectory;
 import model.Hospital;
 import model.HospitalDirectory;
 import model.Person;
@@ -21,6 +22,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
     Person person;
     HospitalDirectory hospitalDirectory;
     PersonDirectory personDirectory;
+    CommunityDirectory communityDirectory;
     static CommunityAdminJFrame communityAdminJFrame;
 
     
@@ -33,31 +35,32 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         this.communityAdminJFrame = communityAdminJFrame;
     }
      
-     public CommunityAdminJFrame(Person person, HospitalDirectory hospitalDirectory,PersonDirectory personDirectory) {
+     public CommunityAdminJFrame(Person person, HospitalDirectory hospitalDirectory,PersonDirectory personDirectory,CommunityDirectory communityDirectory) {
         initComponents();
         splitPane1 = splitPane;
         this.hospitalDirectory = hospitalDirectory;
         this.person = person;
         this.personDirectory = personDirectory;
+        this.communityDirectory = communityDirectory;
 
-        CreateCommunityAdminPanel createCommunityAdminPanel = new CreateCommunityAdminPanel(person, hospitalDirectory,personDirectory);
+        CreateCommunityAdminPanel createCommunityAdminPanel = new CreateCommunityAdminPanel(person, hospitalDirectory,personDirectory,communityDirectory);
         splitPane1.setLeftComponent(createCommunityAdminPanel);
 
-        ViewCommunityAdminPanel viewCommunityAdminPanel = new ViewCommunityAdminPanel(person, hospitalDirectory,personDirectory);
+        ViewCommunityAdminPanel viewCommunityAdminPanel = new ViewCommunityAdminPanel(person, hospitalDirectory,personDirectory,communityDirectory);
         splitPane1.setRightComponent(viewCommunityAdminPanel);
     }
      
-    public static void refreshCommunityAdminCreateCommunityPanel(Person person, HospitalDirectory hospitalDirectory,PersonDirectory personDirectory) {
-        splitPane1.setLeftComponent(new CreateCommunityAdminPanel(person, hospitalDirectory,personDirectory));
+    public static void refreshCommunityAdminCreateCommunityPanel(Person person, HospitalDirectory hospitalDirectory,PersonDirectory personDirectory, CommunityDirectory communityDirectory) {
+        splitPane1.setLeftComponent(new CreateCommunityAdminPanel(person, hospitalDirectory,personDirectory,communityDirectory));
     }
 
-    public static void refreshCommunityAdminViewCommunityPanel(Person person, HospitalDirectory hospitalDirectory,PersonDirectory personDirectory) {
-        splitPane1.setRightComponent(new ViewCommunityAdminPanel(person, hospitalDirectory,personDirectory));
+    public static void refreshCommunityAdminViewCommunityPanel(Person person, HospitalDirectory hospitalDirectory,PersonDirectory personDirectory,CommunityDirectory communityDirectory) {
+        splitPane1.setRightComponent(new ViewCommunityAdminPanel(person, hospitalDirectory,personDirectory,communityDirectory));
         MainFrame.persistHospitalData(hospitalDirectory);
     }
 
-    public static void setCommunityAdminViewCommunityPanel(Person person, HospitalDirectory hospitalDirectory, Hospital hospital) {
-        splitPane1.setLeftComponent(new CreateCommunityAdminPanel(person, hospitalDirectory, hospital));
+    public static void setCommunityAdminViewCommunityPanel(Person person, HospitalDirectory hospitalDirectory, Hospital hospital,CommunityDirectory communityDirectory) {
+        splitPane1.setLeftComponent(new CreateCommunityAdminPanel(person, hospitalDirectory, hospital,communityDirectory));
     }
 
     public static void closeFrame() {

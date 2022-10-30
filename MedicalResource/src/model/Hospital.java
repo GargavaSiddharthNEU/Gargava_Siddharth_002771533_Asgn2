@@ -52,14 +52,6 @@ public class Hospital {
         this.HospitalName = HospitalName;
     }
 
-//    public String getCommunity() {
-//        return Community;
-//    }
-//
-//    public void setCommunity(String Community) {
-//        this.Community = Community;
-//    }
-
     public DoctorDirectory getDoctorDirectory() {
         return doctorDirectory;
     }

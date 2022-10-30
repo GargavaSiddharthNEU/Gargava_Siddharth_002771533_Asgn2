@@ -266,7 +266,6 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        //What's the DoctorJFrame
         HospitalJFrame.closeFrame();
     }//GEN-LAST:event_btnBackActionPerformed
 

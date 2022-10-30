@@ -7,6 +7,7 @@ package ui;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.CommunityDirectory;
 import model.Hospital;
 import model.HospitalDirectory;
 import model.Person;
@@ -24,12 +25,14 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
     Person person;
     HospitalDirectory hospitalDirectory;
     PersonDirectory personDirectory;
+    CommunityDirectory communityDirectory;
     
-    public ViewCommunityAdminPanel(Person person,HospitalDirectory hospitalDirectory,PersonDirectory personDirectory) {
+    public ViewCommunityAdminPanel(Person person,HospitalDirectory hospitalDirectory,PersonDirectory personDirectory,CommunityDirectory communityDirectory) {
         initComponents();
         this.hospitalDirectory = hospitalDirectory;
         this.person = person;
         this.personDirectory = personDirectory;
+        this.communityDirectory = communityDirectory;
         setCommunityAdminProfileData();
     }
     
@@ -246,7 +249,7 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Hospital selectedHospital = (Hospital) model.getValueAt(selectedRowIndex, 0);
-        CommunityAdminJFrame.setCommunityAdminViewCommunityPanel(person,hospitalDirectory, selectedHospital);
+        CommunityAdminJFrame.setCommunityAdminViewCommunityPanel(person,hospitalDirectory, selectedHospital,communityDirectory);
         
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -263,7 +266,7 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Hospital deleted");
         btnPopulateTableActionPerformed(evt);
         txtCommunityName.setText("");
-        CommunityAdminJFrame.refreshCommunityAdminCreateCommunityPanel(person,hospitalDirectory,personDirectory);
+        CommunityAdminJFrame.refreshCommunityAdminCreateCommunityPanel(person,hospitalDirectory,personDirectory,communityDirectory);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 

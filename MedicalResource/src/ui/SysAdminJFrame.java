@@ -138,7 +138,7 @@ public class SysAdminJFrame extends javax.swing.JFrame {
 
     private void btnComAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComAdminActionPerformed
         // TODO add your handling code here:
-        CommunityAdminJFrame communityAdminJFrame = new CommunityAdminJFrame(person, hospitalDirectory, personDirectory);
+        CommunityAdminJFrame communityAdminJFrame = new CommunityAdminJFrame(person, hospitalDirectory, personDirectory,communityDirectory);
         communityAdminJFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         communityAdminJFrame.setVisible(true);
         new CommunityAdminJFrame(communityAdminJFrame);

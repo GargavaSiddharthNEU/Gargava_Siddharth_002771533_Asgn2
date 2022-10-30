@@ -44,7 +44,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         setCreateDoctorPanel(selectedRowIndex);
     }
     
-     //WHAT DOES THIS DO?
+    
     private void setCreateDoctorPanel(int selectedRowIndex) {
 
         int index = 0;
@@ -78,6 +78,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         EncounterHistory encH = new EncounterHistory();
         Patient patient = new Patient();
 
+
         enc.setEncounterId(encounterId);
         enc.setDate(Long.parseLong(encounterDate));
 
@@ -86,10 +87,11 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         vs.setTemperature(temperature);
         vs.setWeight(weight);
         
-        //WORK OF PROCEED
+        
         enc.setVitalSigns(vs);
 
         boolean proceed = false;
+       
 
         //INSERTING FOR THAT PATIENT ALREADY THERE
         for (Patient pa : patientDirectory.getPatients()) {
@@ -104,24 +106,14 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             index++;
         }
         
-        //IF ADDING FOR NEW PATIENT
+    
         if (!proceed) {
-//            patient.setName(patientName);
-//
-//            ArrayList<Encounter> encounterList = new ArrayList<>();
-//            encounterList.add(enc);
-//            encH.setEncounters(encounterList);
-//
-//            patient.setEncounterHistory(encH);
-//
-//            patientDirectory.addPatients(patient);
              JOptionPane.showMessageDialog(this, "Patient with the name : " + patientName + " don't exist in the system");
         }
         
         return proceed;
     }
-    //UPDATE ENCOUNTER
-    //WHY RETURNING BOOLEAN
+  
      private boolean updateEncounterData() {
         String encounterId = txtEncounterId.getText();
         String patientName = txtPatientName.getText();
@@ -152,7 +144,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             if (pa.getName().equals(patientName)) {
                 int index = 0;
                 for (Encounter encounter : pa.getEncounterHistory().getEncounters()) {
-                    if (encounter.getEncounterId() == encounterId) {
+                    if (encounter.getEncounterId().equalsIgnoreCase(encounterId)) {
                         pa.getEncounterHistory().updateEncounters(enc, index);
                         proceed = true;
                         break;
@@ -436,28 +428,27 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         String encounterId = txtEncounterId.getText();
+        
+        boolean validation1 = areDataFieldsEmpty();
+        boolean validation2 = areDataTypesCorrect();
 
-        if (!encounterDetailsExistence()) {
-            JOptionPane.showMessageDialog(this, "You can't update the encounter details since encounter id : " + encounterId + " doesn't exist");
-        } else {
-            boolean validation1 = areDataFieldsEmpty();
-            boolean validation2 = areDataTypesCorrect();
-
-            if (!validation1 && !validation2) {
+        if (!validation1 && !validation2) {
+            if (!encounterDetailsExistence()) {
+                JOptionPane.showMessageDialog(this, "You can't update the encounter details since encounter id : " + encounterId + " doesn't exist");
+            } else {
                 if (updateEncounterData()) {
                     JOptionPane.showMessageDialog(this, "Existing patient with encounter id : " + encounterId + " updated");
                     resetEncounterData();
                     DoctorJFrame.refreshViewDoctorPanel(person, patientDirectory);
                 }
-            } else {
-                validationErrorMessagesDialog(validation1, validation2);
             }
+        } else {
+            validationErrorMessagesDialog(validation1, validation2);
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        //What's the DoctorJFrame
         DoctorJFrame.closeFrame();
     }//GEN-LAST:event_btnBackActionPerformed
 

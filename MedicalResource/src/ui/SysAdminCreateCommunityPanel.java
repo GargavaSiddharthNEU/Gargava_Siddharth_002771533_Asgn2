@@ -210,11 +210,11 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
          String communityId = txtCommunityId.getText();
 
-        if (!communityDetailsExistence()) {
-            JOptionPane.showMessageDialog(this, "You can't update the community details since community id : " + communityId + " doesn't exist");
-        } else {
-            boolean validation1 = areDataFieldsEmpty();
-            if (!validation1) {
+        boolean validation1 = areDataFieldsEmpty();
+        if (!validation1) {
+            if (!communityDetailsExistence()) {
+                JOptionPane.showMessageDialog(this, "You can't update the community details since community id : " + communityId + " doesn't exist");
+            } else {
                 Community community = setCommunityData();
                 int index = 0;
                 for (Community com : communityDirectory.getCommunities()) {
@@ -227,9 +227,9 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Existing community details with community id : " + communityId + " updated");
                 resetCommunityData();
                 SysAdminCreateCommunitiesJFrame.refreshSysAdminViewCommunityPanel(communityDirectory);
-            } else {
-                validationErrorMessagesDialog();
             }
+        } else {
+            validationErrorMessagesDialog();
         }
         
         

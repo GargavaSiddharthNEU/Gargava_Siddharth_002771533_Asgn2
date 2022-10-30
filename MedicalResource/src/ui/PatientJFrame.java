@@ -30,6 +30,7 @@ public class PatientJFrame extends javax.swing.JFrame {
     DoctorDirectory doctorDirectory;
     HospitalDirectory hospitalDirectory;
     Person person;
+    CommunityDirectory communityDirectory;
     static PatientJFrame patientJFrame;
 
     public PatientJFrame() {
@@ -41,10 +42,11 @@ public class PatientJFrame extends javax.swing.JFrame {
         this.patientJFrame = patientJFrame;
     }
 
-    public PatientJFrame(Person temp, HospitalDirectory hospitalDirectory, DoctorDirectory doctorDirectory) {
+    public PatientJFrame(Person temp, HospitalDirectory hospitalDirectory, DoctorDirectory doctorDirectory, CommunityDirectory communityDirectory) {
         initComponents();
-        this.doctorDirectory = doctorDirectory;
-        this.hospitalDirectory = hospitalDirectory;
+        this.communityDirectory = new CommunityDirectory();
+        this.doctorDirectory = new DoctorDirectory();
+        this.hospitalDirectory = new HospitalDirectory();
         this.person = temp;
 
         //---------------------Example1----------------------------

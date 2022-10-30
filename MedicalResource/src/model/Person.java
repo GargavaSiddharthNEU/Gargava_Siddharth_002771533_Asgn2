@@ -17,8 +17,6 @@ public class Person {
     private int age;
     private Long phoneNumber;
     private House house;
-//    private Boolean isPatient;
-//    private Boolean isDoctor;
     private String roleType;
     private String assHospital;
     private String assCommunity;
@@ -98,15 +96,6 @@ public class Person {
         this.house = house;
     }
     
-    
-//
-//    public Boolean getIsPatient() {
-//        return isPatient;
-//    }
-//
-//    public void setIsPatient(Boolean isPatient) {
-//        this.isPatient = isPatient;
-//    }
 
     public String getAssHospital() {
         return assHospital;

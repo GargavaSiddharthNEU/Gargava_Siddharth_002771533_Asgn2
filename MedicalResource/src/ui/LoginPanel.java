@@ -116,24 +116,39 @@ public class LoginPanel extends javax.swing.JPanel {
         String userName = txtEUserName.getText();
         String password = txtEPassword.getText();
         ArrayList<Person> list = personDirectory.getPersons();
-        for(Person temp: list){
-            if(userName.equalsIgnoreCase(temp.getUserName()) && password.equalsIgnoreCase(temp.getPassword())){
-               if(temp.getRoleType().equalsIgnoreCase("Patient")){
-                    PatientJFrame patientFrame = new PatientJFrame(temp,hospitalDirectory,doctorDirectory);
-                    patientFrame.setVisible(true);
-                    new PatientJFrame(patientFrame);
-                }else if (temp.getRoleType().equalsIgnoreCase("Doctor")) {
-                    DoctorJFrame doctor = new DoctorJFrame(temp, patientDirectory, personDirectory);
-                    doctor.setVisible(true);
-                    new DoctorJFrame(doctor);
-                }else if (temp.getRoleType().equalsIgnoreCase("Hospital Admin")){
-                    HospitalJFrame hospitalFrame = new HospitalJFrame(temp,doctorDirectory,personDirectory);
-                    hospitalFrame.setVisible(true);
-                    new HospitalJFrame(hospitalFrame);
-                } else if (temp.getRoleType().equalsIgnoreCase("Community Admin")) {
-                    CommunityAdminJFrame communityadminFrame = new CommunityAdminJFrame(temp, hospitalDirectory, personDirectory);
-                    communityadminFrame.setVisible(true);
-                    new CommunityAdminJFrame(communityadminFrame);
+        
+         if (userName.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter all the details !!");
+        } else {
+            if (list.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "You have not registered !!");
+            } else {
+                int index = 0;
+                for (Person temp : list) {
+                    if (userName.equalsIgnoreCase(temp.getUserName()) && password.equalsIgnoreCase(temp.getPassword())) {
+                        if (temp.getRoleType().equalsIgnoreCase("Patient")) {
+                            PatientJFrame patientFrame = new PatientJFrame(temp,hospitalDirectory,doctorDirectory,communityDirectory);
+                            patientFrame.setVisible(true);
+                            new PatientJFrame(patientFrame);
+                        } else if (temp.getRoleType().equalsIgnoreCase("Doctor")) {
+                            DoctorJFrame doctor = new DoctorJFrame(temp, patientDirectory, personDirectory);
+                            doctor.setVisible(true);
+                            new DoctorJFrame(doctor);
+                        } else if (temp.getRoleType().equalsIgnoreCase("Hospital Admin")) {
+                            HospitalJFrame hospitalFrame = new HospitalJFrame(temp, doctorDirectory, personDirectory);
+                            hospitalFrame.setVisible(true);
+                            new HospitalJFrame(hospitalFrame);
+                        } else if (temp.getRoleType().equalsIgnoreCase("Community Admin")) {
+                            CommunityAdminJFrame communityadminFrame = new CommunityAdminJFrame(temp, hospitalDirectory, personDirectory, communityDirectory);
+                            communityadminFrame.setVisible(true);
+                            new CommunityAdminJFrame(communityadminFrame);
+                        }
+                    } else {
+                        index++;
+                    }
+                }
+                if (index == list.size()) {
+                    JOptionPane.showMessageDialog(this, "You have not registered !!");
                 }
             }
         }
