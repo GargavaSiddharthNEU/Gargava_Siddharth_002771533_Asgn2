@@ -249,102 +249,56 @@ public class Register extends javax.swing.JPanel {
         Person person = new Person();
         House house = new House();
         
-        String firstName = "";
-        String lastName = "";
-        String userName = "";
-        String password = "";
-        String streetAddress = "";
-        String apartmentNumber = "";
-        String community = "";
-        String city = "";
-        int age = 0;
-        Long phoneNumber = 0L;
-        Long personId = 0L;
-        String assHospital = "";
-        String assCommunity = "";
-        Boolean flag = true;
+        String firstName = txtFName.getText();
+        String lastName = txtLName.getText();
+        String userName = txtUserName.getText();
+        String password = txtPassword.getText();
+        String streetAddress = txtStreetAddress.getText();
+        String apartmentNumber = txtApartmentNumber.getText();
+        String community = txtCommunity.getText();
+        String city = txtCity.getText();
+        String age = txtAge.getText();
+        String phoneNumber = txtPhoneNumber.getText();
+        String personId = txtpersonId.getText();
+        String assHospital = txtAssHospital.getText();
+        String assCommunity = txtAssCommunity.getText();
+        String roleType = (String)cmbRole.getSelectedItem();
         
-         if(txtFName.getText().isEmpty() || txtFName.getText().isBlank()){
-            flag = false;
-        } else { 
-            firstName = txtFName.getText();
-        }
-         
-         if(txtLName.getText().isEmpty() || txtLName.getText().isBlank()){
-            flag = false;
-        } else { 
-            lastName = txtLName.getText();
-        }
-         
-        if(txtUserName.getText().isEmpty() || txtUserName.getText().isBlank()){
-            flag = false;
-        } else { 
-            userName = txtUserName.getText();
+        if(firstName.isBlank() || lastName.isBlank() || userName.isBlank() || password.isBlank() ||
+           phoneNumber.isBlank() || personId.isBlank() || age.isBlank() || streetAddress.isBlank() || 
+                apartmentNumber.isBlank() || city.isBlank() || community.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter all details !");
+            //clearAllFields();
+            return;
         }
         
-        if(txtPassword.getText().isEmpty() || txtPassword.getText().isBlank()){
-            flag = false;
-        } else { 
-            password = txtPassword.getText();
+        if(validatePhoneNumber(phoneNumber)==null){
+            JOptionPane.showMessageDialog(this, "Please enter a valid phone number !");
+            return;
         }
         
-        if(txtStreetAddress.getText().isEmpty() || txtStreetAddress.getText().isBlank()){
-            flag = false;
-        } else { 
-            streetAddress = txtStreetAddress.getText();
+        if(validateAge(age)==null){
+            JOptionPane.showMessageDialog(this, "Please enter a valid age!");
+            return;
         }
         
-        if(txtApartmentNumber.getText().isEmpty() || txtApartmentNumber.getText().isBlank()){
-            flag = false;
-        } else { 
-            apartmentNumber = txtApartmentNumber.getText();
-        }
-        
-        if(txtCommunity.getText().isEmpty() || txtCommunity.getText().isBlank()){
-            flag = false;
-        } else { 
-            community = txtCommunity.getText();
-        }
-        
-        if(txtCity.getText().isEmpty() || txtCity.getText().isBlank()){
-            flag = false;
-        } else { 
-            city = txtCity.getText();
+        if(validatePersonID(personId)==null){
+            JOptionPane.showMessageDialog(this, "Please enter a valid SSN!");
+            return;
         }
         
        
-        
-        if(validateAge(txtAge.getText()) == null){
-            flag = false;
-        } else { 
-            age = validateAge(txtAge.getText());
-        }
-        
-        if(validatePhoneNumber(txtPhoneNumber.getText()) == null){
-            flag = false;
-        } else { 
-            phoneNumber = validatePhoneNumber(txtPhoneNumber.getText());
-        }
-        
-        String roleType = (String)cmbRole.getSelectedItem();
-        
          if(txtAssHospital.getText().isEmpty() && roleType.equalsIgnoreCase("Hospital Admin")){
-            flag = false;
-        } else { 
-            assHospital = txtAssHospital.getText();
+            JOptionPane.showMessageDialog(this, "Please enter a valid Hospital ID!");
+            return;
         }
          
           if(txtAssCommunity.getText().isEmpty() && roleType.equalsIgnoreCase("Community Admin")){
-            flag = false;
-        } else { 
-            assCommunity = txtAssCommunity.getText();
-        }
-        
-        if(flag == false){
-            JOptionPane.showMessageDialog(this, "Please enter all details !");
-            clearAllFields();
+            JOptionPane.showMessageDialog(this, "Please enter a valid Community Name!");
             return;
         }
+        
+       
         
         for(Person p: personDirectory.getPersons()){
             if(userName.equals(p.getUserName()))
@@ -353,16 +307,20 @@ public class Register extends javax.swing.JPanel {
                 return;
             }
         }
+        Integer a = validateAge(age);
+        Long pn = validatePhoneNumber(phoneNumber);
+        Long id = validatePersonID(personId);
         
         person.setFirstName(firstName);
         person.setLastName(lastName);
         person.setUserName(userName);
         person.setPassword(password);
         person.setRoleType(roleType);
-        person.setAge(age);
-        person.setPhoneNumber(phoneNumber);
+        person.setAge(a);
+        person.setPhoneNumber(pn);
         person.setAssCommunity(assCommunity);
         person.setAssHospital(assHospital);
+        person.setPersonId(id);
         
         house.setCity(city);
         house.setCountry("USA");
@@ -406,28 +364,26 @@ public class Register extends javax.swing.JPanel {
             return Integer.parseInt(age);
         }
         catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Invalid Age!");
+            System.out.println(e.getMessage());
             return null;
         }
     }
         
-         private Long validatePhoneNumber(String phoneNumber)
-    {
-        try{
-                return Long.parseLong(phoneNumber);
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Invalid Phone Number!");
+        private Long validatePhoneNumber(String phoneNumber) {
+        try {
+            return Long.parseLong(phoneNumber);
+        } catch (NumberFormatException e) {
+             System.out.println(e.getMessage());
             return null;
         }
-        
+
     }
          private Long validatePersonID(String personId){
         try{
             return Long.parseLong(personId);
         }
         catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Invalid SSN!");
+            System.out.println(e.getMessage());
             return null;
         }
     }

@@ -9,7 +9,7 @@ package model;
  * @author siddh
  */
 public class Person {
-    private String personId;
+    private Long personId;
     private String firstName;
     private String lastName;
     private String userName;
@@ -47,14 +47,15 @@ public class Person {
         this.password = password;
     }
 
-
-    public String getPersonId() {
+    public Long getPersonId() {
         return personId;
     }
 
-    public void setPersonId(String personId) {
+    public void setPersonId(Long personId) {
         this.personId = personId;
     }
+    
+    
 
     public String getFirstName() {
         return firstName;

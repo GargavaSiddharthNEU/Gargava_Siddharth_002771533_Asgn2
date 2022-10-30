@@ -119,7 +119,7 @@ public class LoginPanel extends javax.swing.JPanel {
         for(Person temp: list){
             if(userName.equalsIgnoreCase(temp.getUserName()) && password.equalsIgnoreCase(temp.getPassword())){
                if(temp.getRoleType().equalsIgnoreCase("Patient")){
-                    PatientJFrame patientFrame = new PatientJFrame(temp);
+                    PatientJFrame patientFrame = new PatientJFrame(temp,hospitalDirectory,doctorDirectory);
                     patientFrame.setVisible(true);
                     new PatientJFrame(patientFrame);
                 }else if (temp.getRoleType().equalsIgnoreCase("Doctor")) {
