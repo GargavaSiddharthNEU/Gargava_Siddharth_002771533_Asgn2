@@ -14,6 +14,8 @@
 
 Please find below the Class Diagram of this application delineating the different interconnected classes and their objects built for this application:
 
-![Sequence Diagram](C:\Users\siddh\OneDrive\Desktop\NEU Fall Sem\AED5100\Assignment 2\Class Diagram.jpeg)
+![Class Diagram](https://drive.google.com/file/d/1-dvpFomifPzsJvz0fJV6W0GiOJqBKBqZ/view?usp=share_link)
 
 Please find below the Sequence Diagram of this application explaining how the different components interact with each other.
+
+![Sequence Diagram](https://drive.google.com/file/d/1CeRSU55ypWQIRcyG6f2psTJ2rIEvORj_/view?usp=share_link)
