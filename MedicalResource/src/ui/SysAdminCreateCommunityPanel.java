@@ -19,6 +19,8 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
      */
     CommunityDirectory communityDirectory;
     Community community;
+    String mainValidationString = "";
+    String validationString1 = "";
     
     public SysAdminCreateCommunityPanel(CommunityDirectory communityDirectory) {
         initComponents();
@@ -49,6 +51,42 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
         community.setId(communityId);
         community.setName(communityName);
         return community;
+    }
+    
+     public boolean areDataFieldsEmpty() {
+        validationString1 = "";
+        if (txtCommunityId.getText().isEmpty()) {
+            validationString1 += "Community Id, ";
+        }
+        if (txtCommunityName.getText().isEmpty()) {
+            validationString1 += "Community Name, ";
+        }
+        return isNotValid(validationString1);
+    }
+
+    public boolean isNotValid(String str) {
+        if (str.equals("")) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void validationErrorMessagesDialog() {
+        mainValidationString = validationString1;
+        JOptionPane.showMessageDialog(this, "Please update the data for these fields: " + mainValidationString);
+    }
+
+    public boolean communityDetailsExistence() {
+        String communityId = txtCommunityId.getText();
+        boolean exist = false;
+        for (Community com : communityDirectory.getCommunities()) {
+            if (communityId.equals(com.getId())) {
+                exist = true;
+                break;
+            }
+        }
+        return exist;
     }
 
     /**
@@ -151,28 +189,63 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        int communityId = Integer.parseInt(txtCommunityId.getText());
-        communityDirectory.addCommunity(setCommunityData());
-        JOptionPane.showMessageDialog(this, "New community data with community id : " + communityId + " created");
-        resetCommunityData();
-        SysAdminCreateCommunitiesJFrame.refreshSysAdminViewCommunityPanel(communityDirectory);
+         boolean validation1 = areDataFieldsEmpty();
+
+        if (!validation1) {
+            String communityId = txtCommunityId.getText();
+            if (!communityDetailsExistence()) {
+                communityDirectory.addCommunity(setCommunityData());
+                JOptionPane.showMessageDialog(this, "New community with community id : " + communityId + " created");
+                resetCommunityData();
+                SysAdminCreateCommunitiesJFrame.refreshSysAdminViewCommunityPanel(communityDirectory);
+            } else {
+                JOptionPane.showMessageDialog(this, "Community details already exists with the community id : " + communityId);
+            }
+        } else {
+            validationErrorMessagesDialog();
+        }
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String communityId = txtCommunityId.getText();
-        Community community = setCommunityData();
-        int index = 0;
-        for (Community com : communityDirectory.getCommunities()) {
-            if (com.getId().equals(communityId)) {
-                communityDirectory.updateCommunity(community, index);
-                break;
+         String communityId = txtCommunityId.getText();
+
+        if (!communityDetailsExistence()) {
+            JOptionPane.showMessageDialog(this, "You can't update the community details since community id : " + communityId + " doesn't exist");
+        } else {
+            boolean validation1 = areDataFieldsEmpty();
+            if (!validation1) {
+                Community community = setCommunityData();
+                int index = 0;
+                for (Community com : communityDirectory.getCommunities()) {
+                    if (com.getId().equals(communityId)) {
+                        communityDirectory.updateCommunity(community, index);
+                        break;
+                    }
+                    index++;
+                }
+                JOptionPane.showMessageDialog(this, "Existing community details with community id : " + communityId + " updated");
+                resetCommunityData();
+                SysAdminCreateCommunitiesJFrame.refreshSysAdminViewCommunityPanel(communityDirectory);
+            } else {
+                validationErrorMessagesDialog();
             }
-            index++;
         }
-        JOptionPane.showMessageDialog(this, "Existing community with employee id : " + communityId + " updated");
-        resetCommunityData();
-        SysAdminCreateCommunitiesJFrame.refreshSysAdminViewCommunityPanel(communityDirectory);
+        
+        
+//        String communityId = txtCommunityId.getText();
+//        Community community = setCommunityData();
+//        int index = 0;
+//        for (Community com : communityDirectory.getCommunities()) {
+//            if (com.getId().equals(communityId)) {
+//                communityDirectory.updateCommunity(community, index);
+//                break;
+//            }
+//            index++;
+//        }
+//        JOptionPane.showMessageDialog(this, "Existing community with employee id : " + communityId + " updated");
+//        resetCommunityData();
+//        SysAdminCreateCommunitiesJFrame.refreshSysAdminViewCommunityPanel(communityDirectory);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

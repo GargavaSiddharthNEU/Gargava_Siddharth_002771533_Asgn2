@@ -261,7 +261,7 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
         Hospital selectedHospital = (Hospital) model.getValueAt(selectedRowIndex, 0);
         hospitalDirectory.deleteHospital(selectedHospital);
         JOptionPane.showMessageDialog(this, "Hospital deleted");
-        populateHospitalTable();
+        btnPopulateTableActionPerformed(evt);
         txtCommunityName.setText("");
         CommunityAdminJFrame.refreshCommunityAdminCreateCommunityPanel(person,hospitalDirectory,personDirectory);
     }//GEN-LAST:event_btnDeleteActionPerformed
