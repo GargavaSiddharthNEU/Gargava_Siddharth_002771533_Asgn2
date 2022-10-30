@@ -1,5 +1,7 @@
 # Gargava_Siddharth_002771533_Asgn2
 
+## Medical Resource Application
+
 **'Medical Resource'** is a Java swing based Netbeans applications aimed at simplifying the management of various stakeholders during health checkup and diagnosis process. Each individual uses a roletype to perform his/her tasks and functions. Broadly, users have been divided into 5 roles: 
 
 **Patient**: After registering and logging into to the application, patients can view the different hospitals in their community, and can select their preferred hospital to scan through various doctors and their details in that hospital
