@@ -7,6 +7,8 @@ package ui;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.House;
+import model.Patient;
+import model.PatientDirectory;
 import model.Person;
 import model.PersonDirectory;
 
@@ -16,13 +18,15 @@ import model.PersonDirectory;
  */
 public class Register extends javax.swing.JPanel {
     private PersonDirectory personDirectory;
+    private PatientDirectory patientDirectory;
     
     /**
      * Creates new form Register
      */
-    public Register(PersonDirectory personDirectory) {
+    public Register(PersonDirectory personDirectory,PatientDirectory patientDirectory) {
         initComponents();
         this.personDirectory = personDirectory;
+        this.patientDirectory = patientDirectory;
         txtAssCommunity.setVisible(false);
         txtAssHospital.setVisible(false);
         lblAssCommunity.setVisible(false);
@@ -332,6 +336,14 @@ public class Register extends javax.swing.JPanel {
         ArrayList<Person> persons = personDirectory.getPersons();
         persons.add(person);
         personDirectory.setPersons(persons);
+        
+        Patient pa = new Patient();
+
+        pa.setName(firstName + " " + lastName);
+
+        if (person.getRoleType().equals("Patient")) {
+            patientDirectory.addPatients(pa);
+        }
         
         JOptionPane.showMessageDialog(this, "Profile successfully added !");
         clearAllFields();

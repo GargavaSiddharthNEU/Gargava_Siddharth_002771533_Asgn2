@@ -173,7 +173,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        Register registerPanel = new Register(personDirectory);
+        Register registerPanel = new Register(personDirectory, patientDirectory);
         SplitPane.setRightComponent(registerPanel);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
