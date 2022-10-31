@@ -94,8 +94,9 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
        
 
         //INSERTING FOR THAT PATIENT ALREADY THERE
+        int index = 0;
         for (Patient pa : patientDirectory.getPatients()) {
-            int index = 0;
+            
             if (pa.getName().equals(patientName)) {
                 //what's this
                 pa.getEncounterHistory().addEncounters(enc);
