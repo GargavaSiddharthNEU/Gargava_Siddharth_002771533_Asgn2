@@ -20,4 +20,4 @@ Please find below the Class Diagram of this application delineating the differen
 
 Please find below the Sequence Diagram of this application explaining how the different components interact with each other.
 
-![Sequence Diagram](https://drive.google.com/file/d/1CeRSU55ypWQIRcyG6f2psTJ2rIEvORj_/view?usp=share_link)
+![Sequence Diagram](https://github.com/GargavaSiddharthNEU/Gargava_Siddharth_002771533_Asgn2/blob/main/Class_Sequence_Diagrams/Image%20Sequence%20Diagram.jpeg)
