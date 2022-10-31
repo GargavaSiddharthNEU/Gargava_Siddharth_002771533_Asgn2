@@ -107,6 +107,8 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         btnCreate.setText("CREATE");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,20 +234,6 @@ public class SysAdminCreateCommunityPanel extends javax.swing.JPanel {
             validationErrorMessagesDialog();
         }
         
-        
-//        String communityId = txtCommunityId.getText();
-//        Community community = setCommunityData();
-//        int index = 0;
-//        for (Community com : communityDirectory.getCommunities()) {
-//            if (com.getId().equals(communityId)) {
-//                communityDirectory.updateCommunity(community, index);
-//                break;
-//            }
-//            index++;
-//        }
-//        JOptionPane.showMessageDialog(this, "Existing community with employee id : " + communityId + " updated");
-//        resetCommunityData();
-//        SysAdminCreateCommunitiesJFrame.refreshSysAdminViewCommunityPanel(communityDirectory);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

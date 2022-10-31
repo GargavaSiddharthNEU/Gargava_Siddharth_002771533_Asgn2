@@ -128,6 +128,8 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel1.setText("Doctor Name :");
 
         txtDoctorNameValue.setText("NA");
@@ -244,7 +246,7 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblVital.getModel();
-        //QUES-WHY?
+       
         DoctorJFrame.setCreateDoctorPanel(person, patientDirectory, (Patient) model.getValueAt(selectedRowIndex, 0), selectedRowIndex);
         
     }//GEN-LAST:event_btnViewActionPerformed
@@ -259,7 +261,7 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblVital.getModel();
         patientDirectory.deletePatientEncounter((Patient) model.getValueAt(selectedRowIndex, 0), selectedRowIndex);
         JOptionPane.showMessageDialog(this, "Patient encounter deleted");
-        //why getpatient data here?
+        
         getPatientData(jPatientChooser.getSelectedItem().toString());
         DoctorJFrame.refreshCreateDoctorPanel(person, patientDirectory);
     }//GEN-LAST:event_btnDeleteActionPerformed

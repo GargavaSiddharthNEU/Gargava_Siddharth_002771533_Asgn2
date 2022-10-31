@@ -46,9 +46,6 @@ public class SysAdminJFrame extends javax.swing.JFrame {
         this.personDirectory = personDirectory;
     }
     
-//    public static void closeFrame() {
-//        sysadminJFrame.dispose();
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.

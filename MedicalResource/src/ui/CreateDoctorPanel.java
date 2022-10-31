@@ -281,6 +281,8 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         txtEncounterDate = new com.toedter.calendar.JDateChooser();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel1.setText("Patient Name");
 
         jLabel2.setText("Encounter ID");
@@ -418,10 +420,6 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             validationErrorMessagesDialog(validation1, validation2);
         }
         
-//        setEncounterData();
-//        JOptionPane.showMessageDialog(this, "New encounter having encounter id : " + encounterId + " created");
-//        resetEncounterData();
-//        DoctorJFrame.refreshViewDoctorPanel(person, patientDirectory);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed

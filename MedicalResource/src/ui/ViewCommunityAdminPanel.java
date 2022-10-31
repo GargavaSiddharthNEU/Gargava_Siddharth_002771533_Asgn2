@@ -99,6 +99,8 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
         lblCommunityNameValue = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

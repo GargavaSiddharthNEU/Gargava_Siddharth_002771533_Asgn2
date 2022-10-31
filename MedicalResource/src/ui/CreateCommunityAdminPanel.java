@@ -155,6 +155,8 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel1.setText("Community Name");
 
         jLabel2.setText("Hospital ID");

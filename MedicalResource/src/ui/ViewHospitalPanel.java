@@ -109,6 +109,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
         btnPopulate = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setPreferredSize(new java.awt.Dimension(800, 800));
 
         jLabel1.setText("Hospital Admin Name :");

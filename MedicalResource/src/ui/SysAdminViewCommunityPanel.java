@@ -54,6 +54,8 @@ public class SysAdminViewCommunityPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -90,7 +92,7 @@ public class SysAdminViewCommunityPanel extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel1.setText("BUILD COMMUNITY PAGE :");
+        jLabel1.setText("CREATE COMMUNITY PAGE :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -153,7 +153,6 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         }
                         
-//                JOptionPane.showMessageDialog(this, "Invalid User");
     }//GEN-LAST:event_btnLoginUserActionPerformed
 
 

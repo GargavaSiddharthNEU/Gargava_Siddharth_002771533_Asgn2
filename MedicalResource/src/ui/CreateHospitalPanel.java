@@ -182,6 +182,8 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel3.setText("Doctor ID");
 
         jLabel4.setText("Doctor First Name");
