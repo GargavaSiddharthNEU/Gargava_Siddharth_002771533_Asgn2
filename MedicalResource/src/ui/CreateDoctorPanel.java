@@ -51,7 +51,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         for (Encounter enc : this.patient.getEncounterHistory().getEncounters()) {
             if (index == selectedRowIndex) {
                 txtEncounterId.setText(enc.getEncounterId().toString());
-                txtEncounterDate.setText(Long.toString(enc.getDate()));
+                txtEncounterDate.setDate(enc.getDate());
                 txtBloodPressure.setText(Double.toString(enc.getVitalSigns().getBloodPressure()));
                 txtHeartRate.setText(Double.toString(enc.getVitalSigns().getHeartRate()));
                 txtTemperature.setText(Double.toString(enc.getVitalSigns().getTemperature()));
@@ -67,7 +67,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
     private boolean setEncounterData() {
          String encounterId = txtEncounterId.getText();
         String patientName = txtPatientName.getText();
-        String encounterDate = txtEncounterDate.getText();
+        Date encounterDate = txtEncounterDate.getDate();
         double heartRate = Double.parseDouble(txtHeartRate.getText());
         double temperature = Double.parseDouble(txtTemperature.getText());
         double bloodPressure = Double.parseDouble(txtBloodPressure.getText());
@@ -80,7 +80,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
 
 
         enc.setEncounterId(encounterId);
-        enc.setDate(Long.parseLong(encounterDate));
+        enc.setDate(encounterDate);
 
         vs.setBloodPressure(bloodPressure);
         vs.setHeartRate(heartRate);
@@ -117,7 +117,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
      private boolean updateEncounterData() {
         String encounterId = txtEncounterId.getText();
         String patientName = txtPatientName.getText();
-        String encounterDate = txtEncounterDate.getText();
+       Date encounterDate = txtEncounterDate.getDate();
         double heartRate = Double.parseDouble(txtHeartRate.getText());
         double temperature = Double.parseDouble(txtTemperature.getText());
         double bloodPressure = Double.parseDouble(txtBloodPressure.getText());
@@ -129,7 +129,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         Patient patient = new Patient();
 
         enc.setEncounterId(encounterId);
-        enc.setDate(Long.parseLong(encounterDate));
+        enc.setDate((encounterDate));
 
         vs.setBloodPressure(bloodPressure);
         vs.setHeartRate(heartRate);
@@ -159,7 +159,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
      
     private void resetEncounterData() {
         txtEncounterId.setText("");
-        txtEncounterDate.setText("");
+        txtEncounterDate.setDate(null);
         txtBloodPressure.setText("");
         txtHeartRate.setText("");
         txtTemperature.setText("");
@@ -175,7 +175,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         if (txtEncounterId.getText().isEmpty()) {
             validationString1 += "Encounter Id, ";
         }
-        if (txtEncounterDate.getText().isEmpty()) {
+         if (txtEncounterDate.getDate() == null) {
             validationString1 += "EncounterDate, ";
         }
         if (txtBloodPressure.getText().isEmpty()) {
@@ -265,7 +265,6 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtPatientName = new javax.swing.JTextField();
         txtEncounterId = new javax.swing.JTextField();
-        txtEncounterDate = new javax.swing.JTextField();
         txtHeartRate = new javax.swing.JTextField();
         txtBloodPressure = new javax.swing.JTextField();
         txtTemperature = new javax.swing.JTextField();
@@ -280,6 +279,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        txtEncounterDate = new com.toedter.calendar.JDateChooser();
 
         jLabel1.setText("Patient Name");
 
@@ -347,13 +347,13 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPatientName)
                             .addComponent(txtEncounterId)
-                            .addComponent(txtEncounterDate, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                             .addComponent(txtHeartRate, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                             .addComponent(txtBloodPressure)
                             .addComponent(txtWeight)
                             .addComponent(txtTemperature)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(85, Short.MAX_VALUE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEncounterDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,9 +369,9 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                     .addComponent(txtEncounterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(txtEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtHeartRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -466,7 +466,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField txtBloodPressure;
-    private javax.swing.JTextField txtEncounterDate;
+    private com.toedter.calendar.JDateChooser txtEncounterDate;
     private javax.swing.JTextField txtEncounterId;
     private javax.swing.JTextField txtHeartRate;
     private javax.swing.JTextField txtPatientName;

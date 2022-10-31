@@ -253,13 +253,13 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        if (this.person != null && !(this.person.getAssCommunity().equalsIgnoreCase(txtCommunityName.getText())) && this.person.getRoleType().equalsIgnoreCase("Community Admin")) {
-            JOptionPane.showMessageDialog(this, "Restricted Access");
-        } else {
-            String hospitalId = txtHospitalId.getText();
-            boolean validation1 = areDataFieldsEmpty();
+        String hospitalId = txtHospitalId.getText();
+        boolean validation1 = areDataFieldsEmpty();
 
-            if (!validation1) {
+        if (!validation1) {
+            if (this.person != null && !(this.person.getAssCommunity().equalsIgnoreCase(txtCommunityName.getText())) && this.person.getRoleType().equalsIgnoreCase("Community Admin")) {
+                JOptionPane.showMessageDialog(this, "Restricted Access");
+            } else {
                 if (communityDetailsExistence()) {
                     if (!hospitalDetailsExistence()) {
                         hospitalDirectory.addHospital(setHospitalData());
@@ -272,15 +272,11 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
                 } else {
                     JOptionPane.showMessageDialog(this, "Community entered doesn't exists in the system");
                 }
-            } else {
-                validationErrorMessagesDialog();
             }
+        } else {
+            validationErrorMessagesDialog();
         }
         
-//    hospitalDirectory.addHospital(setHospitalData());
-//            JOptionPane.showMessageDialog(this, "New hospital data with hospital id : " + hospitalId + " created");
-//            resetHospitalData();
-//            CommunityAdminJFrame.refreshCommunityAdminViewCommunityPanel(person, hospitalDirectory, personDirectory);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -290,25 +286,29 @@ public class CreateCommunityAdminPanel extends javax.swing.JPanel {
         boolean validation1 = areDataFieldsEmpty();
 
         if (!validation1) {
-            if (communityDetailsExistence()) {
-                if (hospitalDetailsExistence()) {
-                    Hospital hospital = setHospitalData();
-                    int index = 0;
-                    for (Hospital hosp : hospitalDirectory.getHospitals()) {
-                        if (hosp.getHospitalID().equals(hospitalId)) {
-                            hospitalDirectory.updateHospital(hospital, index);
-                            break;
-                        }
-                        index++;
-                    }
-                    JOptionPane.showMessageDialog(this, "Existing hospital with hospital id : " + hospitalId + " updated");
-                    resetHospitalData();
-                    CommunityAdminJFrame.refreshCommunityAdminViewCommunityPanel(person, hospitalDirectory, personDirectory, communityDirectory);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Hospital data with hospital id : " + hospitalId + " doesn't exists in the system");
-                }
+            if (this.person != null && !(this.person.getAssCommunity().equalsIgnoreCase(txtCommunityName.getText())) && this.person.getRoleType().equalsIgnoreCase("Community Admin")) {
+                JOptionPane.showMessageDialog(this, "Restricted Access");
             } else {
-                JOptionPane.showMessageDialog(this, "Community entered doesn't exists in the system");
+                if (communityDetailsExistence()) {
+                    if (hospitalDetailsExistence()) {
+                        Hospital hospital = setHospitalData();
+                        int index = 0;
+                        for (Hospital hosp : hospitalDirectory.getHospitals()) {
+                            if (hosp.getHospitalID().equals(hospitalId)) {
+                                hospitalDirectory.updateHospital(hospital, index);
+                                break;
+                            }
+                            index++;
+                        }
+                        JOptionPane.showMessageDialog(this, "Existing hospital with hospital id : " + hospitalId + " updated");
+                        resetHospitalData();
+                        CommunityAdminJFrame.refreshCommunityAdminViewCommunityPanel(person, hospitalDirectory, personDirectory, communityDirectory);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Hospital data with hospital id : " + hospitalId + " doesn't exists in the system");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Community entered doesn't exists in the system");
+                }
             }
         } else {
             validationErrorMessagesDialog();

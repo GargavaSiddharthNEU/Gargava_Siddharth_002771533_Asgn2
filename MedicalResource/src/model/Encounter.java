@@ -4,13 +4,15 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author siddh
  */
 public class Encounter {
     private String encounterId;
-    private Long date;
+    private Date date;
     private String description;
     private VitalSigns vitalSigns;
 
@@ -21,15 +23,16 @@ public class Encounter {
     public void setEncounterId(String encounterId) {
         this.encounterId = encounterId;
     }
-    
 
-    public Long getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Long date) {
+    public void setDate(Date date) {
         this.date = date;
     }
+    
+    
 
     public String getDescription() {
         return description;

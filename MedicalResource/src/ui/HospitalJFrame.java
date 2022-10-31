@@ -26,6 +26,7 @@ public class HospitalJFrame extends javax.swing.JFrame {
     Person person;
     DoctorDirectory doctorDirectory;
     PersonDirectory personDirectory;
+    HospitalDirectory hospitalDirectory;
     static HospitalJFrame hospitalJFrame;
     
     public HospitalJFrame() {
@@ -37,20 +38,20 @@ public class HospitalJFrame extends javax.swing.JFrame {
         this.hospitalJFrame = hospitalJFrame;
     }
     
-    public HospitalJFrame(Person person, DoctorDirectory doctorDirectory, PersonDirectory personDirectory) {
+    public HospitalJFrame(Person person, DoctorDirectory doctorDirectory, PersonDirectory personDirectory, HospitalDirectory hospitalDirectory) {
         initComponents();
         
         hospitalSplitPane1 = hospitalSplitPane;
         this.person = person;
         this.doctorDirectory= doctorDirectory;
         this.personDirectory = personDirectory;
-        
+        this.hospitalDirectory = hospitalDirectory;
         
 
-        CreateHospitalPanel createHospitalPanel = new CreateHospitalPanel(person, doctorDirectory, personDirectory);
+        CreateHospitalPanel createHospitalPanel = new CreateHospitalPanel(person, doctorDirectory, personDirectory,hospitalDirectory);
         hospitalSplitPane1.setLeftComponent(createHospitalPanel);
 
-        ViewHospitalPanel viewHospitalPanel = new ViewHospitalPanel(person, doctorDirectory, personDirectory);
+        ViewHospitalPanel viewHospitalPanel = new ViewHospitalPanel(person, doctorDirectory, personDirectory,hospitalDirectory);
         hospitalSplitPane1.setRightComponent(viewHospitalPanel);
     }
     
@@ -58,18 +59,18 @@ public class HospitalJFrame extends javax.swing.JFrame {
         hospitalJFrame.dispose();
     }
     
-    public static void refreshViewHospitalPanel(Person person, DoctorDirectory doctorDirectory, PersonDirectory personDirectory) {
-        hospitalSplitPane1.setRightComponent(new ViewHospitalPanel(person, doctorDirectory, personDirectory));
+    public static void refreshViewHospitalPanel(Person person, DoctorDirectory doctorDirectory, PersonDirectory personDirectory,HospitalDirectory hospitalDirectory) {
+        hospitalSplitPane1.setRightComponent(new ViewHospitalPanel(person, doctorDirectory, personDirectory,hospitalDirectory));
         MainFrame.persistDoctorData(doctorDirectory);
     }
     
-    public static void refreshCreateHospitalPanel(Person person, DoctorDirectory doctorDirectory, PersonDirectory personDirectory) {
-        hospitalSplitPane1.setLeftComponent(new CreateHospitalPanel(person, doctorDirectory, personDirectory));
+    public static void refreshCreateHospitalPanel(Person person, DoctorDirectory doctorDirectory, PersonDirectory personDirectory, HospitalDirectory hospitalDirectory) {
+        hospitalSplitPane1.setLeftComponent(new CreateHospitalPanel(person, doctorDirectory, personDirectory,hospitalDirectory));
         MainFrame.persistDoctorData(doctorDirectory);
    }
     
-    public static void setCreateDoctorPanel(Person person, DoctorDirectory doctorDirectory, Doctor doctor) {
-        hospitalSplitPane1.setLeftComponent(new CreateHospitalPanel(person, doctorDirectory, doctor));
+    public static void setCreateDoctorPanel(Person person, DoctorDirectory doctorDirectory, Doctor doctor, HospitalDirectory hospitalDirectory) {
+        hospitalSplitPane1.setLeftComponent(new CreateHospitalPanel(person, doctorDirectory, doctor,hospitalDirectory));
     }
 
     /**

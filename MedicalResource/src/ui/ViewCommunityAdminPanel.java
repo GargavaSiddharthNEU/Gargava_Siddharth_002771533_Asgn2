@@ -225,7 +225,7 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please enter code");
         }
       
-        if (this.person != null && !(this.person.getAssCommunity().equalsIgnoreCase(txtCommunityName.getText())) && this.person.getRoleType() == "Community Admin") {
+        else if (this.person != null && !(this.person.getAssCommunity().equalsIgnoreCase(txtCommunityName.getText())) && this.person.getRoleType() == "Community Admin") {
             JOptionPane.showMessageDialog(this, "Restricted Access");
         } else {
             ArrayList<Hospital> hospitalList = new ArrayList<>();
@@ -265,7 +265,7 @@ public class ViewCommunityAdminPanel extends javax.swing.JPanel {
         hospitalDirectory.deleteHospital(selectedHospital);
         JOptionPane.showMessageDialog(this, "Hospital deleted");
         btnPopulateTableActionPerformed(evt);
-        txtCommunityName.setText("");
+        //txtCommunityName.setText("");
         CommunityAdminJFrame.refreshCommunityAdminCreateCommunityPanel(person,hospitalDirectory,personDirectory,communityDirectory);
     }//GEN-LAST:event_btnDeleteActionPerformed
 

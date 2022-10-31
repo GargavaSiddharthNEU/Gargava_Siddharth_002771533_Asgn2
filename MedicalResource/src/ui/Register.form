@@ -227,7 +227,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Apartment Number"/>
+        <Property name="text" type="java.lang.String" value="Apartment"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtStreetAddress">

@@ -105,7 +105,7 @@ public class Register extends javax.swing.JPanel {
 
         jLabel5.setText("Roletype");
 
-        jLabel6.setText("Apartment Number");
+        jLabel6.setText("Apartment");
 
         jLabel7.setText("Community");
 
@@ -383,7 +383,12 @@ public class Register extends javax.swing.JPanel {
         
         private Long validatePhoneNumber(String phoneNumber) {
         try {
-            return Long.parseLong(phoneNumber);
+            if(phoneNumber.length() == 10)
+                return Long.parseLong(phoneNumber);
+            else{
+                //JOptionPane.showMessageDialog(this, "Invalid Phone Number!");
+                return null;
+            }
         } catch (NumberFormatException e) {
              System.out.println(e.getMessage());
             return null;

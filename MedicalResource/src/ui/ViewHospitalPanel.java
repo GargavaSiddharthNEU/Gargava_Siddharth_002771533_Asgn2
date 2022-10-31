@@ -30,12 +30,14 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
     Person person;
     DoctorDirectory doctorDirectory;
     PersonDirectory personDirectory;
+    HospitalDirectory hospitalDirectory;
     
-    public ViewHospitalPanel(Person person, DoctorDirectory doctorDirectory, PersonDirectory personDirectory) {
+    public ViewHospitalPanel(Person person, DoctorDirectory doctorDirectory, PersonDirectory personDirectory,HospitalDirectory hospitalDirectory) {
         initComponents();
         this.person = person;
         this.doctorDirectory = doctorDirectory;
         this.personDirectory = personDirectory;
+        this.hospitalDirectory = hospitalDirectory;
         setHospitalAdminProfileData();
         
     }
@@ -237,7 +239,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
         Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex, 0);
-        HospitalJFrame.setCreateDoctorPanel(person, doctorDirectory, selectedDoctor);
+        HospitalJFrame.setCreateDoctorPanel(person, doctorDirectory, selectedDoctor,hospitalDirectory);
         
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -254,8 +256,8 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
         doctorDirectory.deleteDoctor(selectedDoctor);
         JOptionPane.showMessageDialog(this, "Doctor deleted"); 
         btnPopulateActionPerformed(evt);
-        HospitalJFrame.refreshCreateHospitalPanel(person, doctorDirectory, personDirectory);
-        txtHospId.setText("");
+        HospitalJFrame.refreshCreateHospitalPanel(person, doctorDirectory, personDirectory,hospitalDirectory);
+        //txtHospId.setText("");
         
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -265,7 +267,7 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
         if (hosID.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter code");
         }
-        if (this.person!=null && !(this.person.getAssHospital().equalsIgnoreCase(txtHospId.getText())) && this.person.getRoleType() == "Hospital Admin") {
+        else if (this.person!=null && !(this.person.getAssHospital().equalsIgnoreCase(txtHospId.getText())) && this.person.getRoleType() == "Hospital Admin") {
             JOptionPane.showMessageDialog(this, "Restricted Access");
         } else {
             ArrayList<Doctor> doctorList = new ArrayList<>();

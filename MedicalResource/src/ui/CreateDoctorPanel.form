@@ -43,16 +43,16 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txtPatientName" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtEncounterId" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtEncounterDate" alignment="0" pref="166" max="32767" attributes="0"/>
                           <Component id="txtHeartRate" alignment="0" pref="166" max="32767" attributes="0"/>
                           <Component id="txtBloodPressure" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtWeight" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtTemperature" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel8" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="txtEncounterDate" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace pref="100" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,9 +72,9 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtEncounterDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEncounterDate" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -117,8 +117,6 @@
     <Component class="javax.swing.JTextField" name="txtPatientName">
     </Component>
     <Component class="javax.swing.JTextField" name="txtEncounterId">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtEncounterDate">
     </Component>
     <Component class="javax.swing.JTextField" name="txtHeartRate">
     </Component>
@@ -189,6 +187,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="txtEncounterDate">
     </Component>
   </SubComponents>
 </Form>

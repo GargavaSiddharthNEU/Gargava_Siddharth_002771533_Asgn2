@@ -154,7 +154,7 @@ public class SysAdminJFrame extends javax.swing.JFrame {
 
     private void btnHosAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHosAdminActionPerformed
         // TODO add your handling code here:
-        HospitalJFrame hospitalJFrame = new HospitalJFrame(person, doctorDirectory, personDirectory);
+        HospitalJFrame hospitalJFrame = new HospitalJFrame(person, doctorDirectory, personDirectory,hospitalDirectory);
         hospitalJFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         hospitalJFrame.setVisible(true);
         new HospitalJFrame(hospitalJFrame);

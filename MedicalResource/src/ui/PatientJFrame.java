@@ -44,9 +44,9 @@ public class PatientJFrame extends javax.swing.JFrame {
 
     public PatientJFrame(Person temp, HospitalDirectory hospitalDirectory, DoctorDirectory doctorDirectory, CommunityDirectory communityDirectory) {
         initComponents();
-        this.communityDirectory = new CommunityDirectory();
-        this.doctorDirectory = new DoctorDirectory();
-        this.hospitalDirectory = new HospitalDirectory();
+        this.communityDirectory = communityDirectory;
+        this.doctorDirectory = doctorDirectory;
+        this.hospitalDirectory = hospitalDirectory;
         this.person = temp;
 
         //---------------------Example1----------------------------
