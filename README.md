@@ -16,7 +16,7 @@
 
 Please find below the Class Diagram of this application delineating the different interconnected classes and their objects built for this application:
 
-![Class Diagram](https://drive.google.com/file/d/1-dvpFomifPzsJvz0fJV6W0GiOJqBKBqZ/view?usp=share_link)
+![Class Diagram](Class_Sequence_Diagrams/Class Diagram.jpeg)
 
 Please find below the Sequence Diagram of this application explaining how the different components interact with each other.
 
