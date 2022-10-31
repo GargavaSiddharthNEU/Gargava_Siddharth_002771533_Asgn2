@@ -16,7 +16,7 @@
 
 Please find below the Class Diagram of this application delineating the different interconnected classes and their objects built for this application:
 
-![Class Diagram](Class_Sequence_Diagrams/Class Diagram.jpeg)
+![Class Diagram](https://github.com/GargavaSiddharthNEU/Gargava_Siddharth_002771533_Asgn2/blob/main/Class_Sequence_Diagrams/Class%20Diagram.jpeg)
 
 Please find below the Sequence Diagram of this application explaining how the different components interact with each other.
 
